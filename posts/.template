@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title></title>
+
+    <meta name="author" content="Sumit Sengar">
+    <meta name="description"
+        content="">
+
+    <link rel="stylesheet" href="assets/css/blog.css">
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon/android-chrome-512x512.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CBVTCGJWY3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CBVTCGJWY3');
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-bar">
+            <div class="l-nav">
+                <a href="index">sumitsengar<span>.</span></a>
+            </div>
+            <div class="r-nav">
+                <div class="sun" onclick="changeTheme()"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <article class="blog-post">
+
+            <h1 class="blog-title">
+                
+            </h1>
+
+            <div class="blog-meta">
+                <span id="read-time"></span>
+                <span class="meta-separator">•</span>
+                <time datetime="2026-04-12"></time>
+                <span class="meta-separator">•</span>
+                <span class="post-tag"></span>
+            </div>
+
+            <div class="blog-content">
+                
+            </div>
+
+        </article>
+
+    </main>
+
+    <footer>
+        <div class="footer-message">
+            &ldquo; Thanks for reading. &rdquo;
+        </div>
+
+        <div class="footer-links">
+            <a href="https://www.instagram.com/_sumitsengar_/" class="instagram"></a>
+            <a href="mailto:hello@sumitsengar.me" class="mail"></a>
+        </div>
+
+        <div class="footer-copyright">
+            © 2026 Sumit Sengar
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
