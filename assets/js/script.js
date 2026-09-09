@@ -1,5 +1,5 @@
 /**
- * Sumit Sengar — Personal Writing Space
+ * Sumit Sengar | Personal Writing Space
  * Theme Manager, Reading Time Calculator, and Dynamic Utilities
  */
 

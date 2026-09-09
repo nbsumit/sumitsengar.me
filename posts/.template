@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post Title — Sumit Sengar</title>
+    <title>Post Title | Sumit Sengar</title>
 
     <meta name="author" content="Sumit Sengar">
     <meta name="description" content="A short summary or excerpt of the essay.">
@@ -13,13 +13,13 @@
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://sumitsengar.me/posts/slug">
-    <meta property="og:title" content="Post Title — Sumit Sengar">
+    <meta property="og:title" content="Post Title | Sumit Sengar">
     <meta property="og:description" content="A short summary or excerpt of the essay.">
     <meta property="og:site_name" content="Sumit Sengar">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Post Title — Sumit Sengar">
+    <meta name="twitter:title" content="Post Title | Sumit Sengar">
     <meta name="twitter:description" content="A short summary or excerpt of the essay.">
 
     <!-- Theme Colors -->
@@ -52,7 +52,7 @@
     <!-- Header & Navigation -->
     <header class="site-header" role="banner">
         <div class="site-wrapper">
-            <a href="../index.html" class="site-brand" aria-label="Sumit Sengar — Home">
+            <a href="../index.html" class="site-brand" aria-label="Sumit Sengar | Home">
                 sumitsengar<span class="brand-mark">.</span>
             </a>
 
@@ -122,7 +122,7 @@
                 <div class="article-author-card">
                     <div class="author-card-name">Sumit Sengar</div>
                     <div class="author-card-desc">
-                        Expressing the Unspoken Words — Personal reflections on life, literature, cinema, and the moments in between.
+                        Expressing the Unspoken Words | Personal reflections on life, literature, cinema, and the moments in between.
                     </div>
                 </div>
 
@@ -146,13 +146,11 @@
                 </div>
 
                 <div class="footer-links">
-                    <a href="https://www.instagram.com/_sumitsengar_/" target="_blank" rel="noopener noreferrer" class="footer-link-btn" aria-label="Instagram profile @_sumitsengar_">
+                    <a href="https://www.instagram.com/_sumitsengar_/" target="_blank" rel="noopener noreferrer" class="footer-circle-link" aria-label="Instagram" title="Instagram">
                         <span data-icon="instagram"></span>
-                        <span>@_sumitsengar_</span>
                     </a>
-                    <a href="mailto:hello@sumitsengar.me" class="footer-link-btn" aria-label="Send email to hello@sumitsengar.me">
+                    <a href="mailto:hello@sumitsengar.me" class="footer-circle-link" aria-label="Email" title="Email">
                         <span data-icon="mail"></span>
-                        <span>hello@sumitsengar.me</span>
                     </a>
                 </div>
 
