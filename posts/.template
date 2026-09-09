@@ -146,12 +146,8 @@
                 </div>
 
                 <div class="footer-links">
-                    <a href="https://www.instagram.com/_sumitsengar_/" target="_blank" rel="noopener noreferrer" class="footer-circle-link" aria-label="Instagram" title="Instagram">
-                        <span data-icon="instagram"></span>
-                    </a>
-                    <a href="mailto:hello@sumitsengar.me" class="footer-circle-link" aria-label="Email" title="Email">
-                        <span data-icon="mail"></span>
-                    </a>
+                    <a href="https://www.instagram.com/_sumitsengar_/" target="_blank" rel="noopener noreferrer" class="footer-circle-link" data-icon="instagram" aria-label="Instagram" title="Instagram"></a>
+                    <a href="mailto:hello@sumitsengar.me" class="footer-circle-link" data-icon="mail" aria-label="Email" title="Email"></a>
                 </div>
 
                 <div class="footer-meta">
