@@ -4,14 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sumit Sengar | Blog</title>
-
-    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Sumit Sengar — Expressing the Unspoken Words</title>
 
     <meta name="author" content="Sumit Sengar">
     <meta name="description"
-        content="A personal blog sharing real-life experiences, thoughts on love, life, movies, and everything in between.">
+        content="The personal writing space of Sumit Sengar. Reflections on life, books, cinema, and the moments in between.">
+    <link rel="canonical" href="https://sumitsengar.me/">
 
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sumitsengar.me/">
+    <meta property="og:title" content="Sumit Sengar — Expressing the Unspoken Words">
+    <meta property="og:description"
+        content="The personal writing space of Sumit Sengar. Reflections on life, books, cinema, and the moments in between.">
+    <meta property="og:site_name" content="Sumit Sengar">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Sumit Sengar — Expressing the Unspoken Words">
+    <meta name="twitter:description"
+        content="The personal writing space of Sumit Sengar. Reflections on life, books, cinema, and the moments in between.">
+
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#131312" media="(prefers-color-scheme: dark)">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
@@ -26,87 +47,172 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-CBVTCGJWY3');
     </script>
 </head>
 
-<body>
+<body id="top">
 
-    <header>
-        <div class="nav-bar">
-            <div class="l-nav">
-                <a href="index">sumitsengar<span>.</span></a>
-            </div>
-            <div class="r-nav">
-                <div class="sun" onclick="changeTheme()"></div>
-            </div>
+    <!-- Header & Navigation -->
+    <header class="site-header" role="banner">
+        <div class="site-wrapper">
+            <a href="/" class="site-brand" aria-label="Sumit Sengar — Home">
+                sumitsengar<span class="brand-mark">.</span>
+            </a>
+
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="#writings" class="nav-link">Writings</a>
+                <a href="#about" class="nav-link">About</a>
+                <button type="button" class="theme-toggle" aria-label="Toggle light or dark theme" title="Toggle theme">
+                    <!-- SVG injected via script.js with fallback -->
+                    <span data-icon="moon"></span>
+                </button>
+            </nav>
         </div>
     </header>
 
+    <main id="main-content">
 
-    <main>
-        <div class="hero-section">
-            <div class="hero-title">
-                <span>Expressing</span> the <br />
-                <span>Unspoken</span> Words
+        <!-- Hero Section -->
+        <section class="hero" aria-label="Introduction">
+            <div class="site-wrapper">
+                <div class="hero-inner">
+                    <div class="hero-eyebrow">Personal Journal &amp; Essays</div>
+                    <h1 class="hero-title">
+                        Expressing the <br>
+                        <span class="title-italic">Unspoken</span> Words
+                    </h1>
+                    <p class="hero-description">
+                        A quiet collection of reflections on life, love, books, films, and the moments in between.
+                    </p>
+                    <a href="#writings" class="hero-action">
+                        Read writings <span data-icon="arrowDown"></span>
+                    </a>
+                </div>
             </div>
-            <div class="hero-description">
-                A collection of reflections on life, love, books, films, and the moments in between.
+        </section>
+
+        <!-- Writings Section -->
+        <section class="content-section" id="writings" aria-label="Writings and Essays">
+            <div class="site-wrapper">
+                <div class="section-header">
+                    <div class="section-title-wrap">
+                        <span class="section-num">01</span>
+                        <h2 class="section-title">Writings</h2>
+                    </div>
+                    <span class="section-note">Essays &amp; reflections</span>
+                </div>
+
+                <!-- Posts List Container: Future post articles will be placed here -->
+                <div class="posts-list">
+                    <!-- Future posts will be placed here in the format:
+                    <article class="post-item">
+                        <div class="post-meta">
+                            <span class="post-tag">Tag</span>
+                            <span class="post-separator">•</span>
+                            <time datetime="YYYY-MM-DD">Month DD, YYYY</time>
+                            <span class="post-separator">•</span>
+                            <span>5 min read</span>
+                        </div>
+                        <h3 class="post-item-title">
+                            <a href="posts/slug">Article Title</a>
+                        </h3>
+                        <p class="post-item-excerpt">
+                            Article excerpt goes here...
+                        </p>
+                        <a href="posts/slug" class="post-item-link">
+                            Read essay <span data-icon="arrowRight"></span>
+                        </a>
+                    </article>
+                    -->
+                </div>
+
+                <!-- Intentional Literary Empty State: Automatically hides when posts are present -->
+                <div class="writings-empty" id="writings-empty">
+                    <div class="empty-ornament" aria-hidden="true">✦</div>
+                    <h3 class="empty-title">The pages are quiet for now</h3>
+                    <p class="empty-text">
+                        Essays and reflections on literature, cinema, and life experiences are currently being written. As they are completed, they will appear here.
+                    </p>
+                    <p class="empty-subtext">Feel free to connect or check back soon.</p>
+                </div>
             </div>
-            <a href="#posts" class="cta">
-                Read the writings <span class="arrowRight"></span>
-            </a>
-        </div>
+        </section>
 
-        <section class="posts" id="posts">
-            <h2 class="posts-title">Posts</h2>
+        <!-- About Section -->
+        <section class="content-section" id="about" aria-label="About this space">
+            <div class="site-wrapper">
+                <div class="section-header">
+                    <div class="section-title-wrap">
+                        <span class="section-num">02</span>
+                        <h2 class="section-title">About</h2>
+                    </div>
+                    <span class="section-note">This space</span>
+                </div>
 
-            <div class="posts-grid">
-                <!-- <article class="post-card">
-                    <div class="post-meta">
-                        <span class="post-tag">Life</span>
-                        <span class="post-date">Feb 14, 2026</span>
+                <div class="about-grid">
+                    <p class="about-lead">
+                        Welcome to my personal writing space.
+                    </p>
+                    <div class="about-body">
+                        <p>
+                            I created this space as a quiet journal for thoughts that often go unspoken — reflections on books, cinema, everyday moments, and the perspectives shaped by them.
+                        </p>
+                        <p>
+                            The site is intentionally minimal: built with pure HTML and CSS, free from algorithmic feeds, advertisements, or tracking noise. Just words and careful typography.
+                        </p>
                     </div>
 
-                    <h3 class="post-title">
-                        What is Life?
-                    </h3>
-
-                    <p class="post-excerpt">
-                        We think we have time. We think we will live later. But life is happening now, and it never
-                        waits for us to be ready.
-                    </p>
-
-                    <a href="what-is-life" class="post-read">
-                        Read
-                        <span class="arrowRight"></span>
-                    </a>
-                </article> -->
-                
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Author</span>
+                            <span class="detail-value">Sumit Sengar</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Concept</span>
+                            <span class="detail-value">Expressing the Unspoken Words</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Craft</span>
+                            <span class="detail-value">Pure HTML / CSS / Vanilla JS</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
     </main>
 
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="site-wrapper">
+            <div class="footer-inner">
+                <div class="footer-signoff">
+                    &ldquo; Thanks for reading. &rdquo;
+                </div>
 
-    <footer>
-        <div class="footer-message">
-            &ldquo; Thanks for reading. &rdquo;
-        </div>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com/_sumitsengar_/" target="_blank" rel="noopener noreferrer" class="footer-link-btn" aria-label="Instagram profile @_sumitsengar_">
+                        <span data-icon="instagram"></span>
+                        <span>@_sumitsengar_</span>
+                    </a>
+                    <a href="mailto:hello@sumitsengar.me" class="footer-link-btn" aria-label="Send email to hello@sumitsengar.me">
+                        <span data-icon="mail"></span>
+                        <span>hello@sumitsengar.me</span>
+                    </a>
+                </div>
 
-        <div class="footer-links">
-            <a href="https://www.instagram.com/_sumitsengar_/" class="instagram"></a>
-            <a href="mailto:hello@sumitsengar.me" class="mail"></a>
-        </div>
-
-        <div class="footer-copyright">
-            © 2026 Sumit Sengar
+                <div class="footer-meta">
+                    <div class="footer-copyright">
+                        &copy; <span id="current-year">2026</span> Sumit Sengar. All rights reserved.
+                    </div>
+                    <a href="#top" class="footer-back-to-top">Return to top &uarr;</a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
-
 </body>
 
 </html>
