@@ -371,20 +371,34 @@ main {
 .hero-action {
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
-    font-size: 1rem;
+    gap: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: 0.02em;
     color: var(--accent);
-    padding-bottom: 0.25rem;
+    padding-bottom: 0.3rem;
     border-bottom: 1px solid transparent;
-    transition: border-color 0.25s ease, transform 0.2s ease, gap 0.2s ease;
+    text-decoration: none;
+    transition: border-color 0.25s ease;
+}
+
+.hero-action .action-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    width: 1.15rem;
+    height: 1.15rem;
+    position: relative;
+    top: 1px;
 }
 
 .hero-action svg {
-    width: 1.15rem;
-    height: 1.15rem;
-    transition: transform 0.25s ease;
+    width: 1.05rem;
+    height: 1.05rem;
+    display: block;
+    stroke-width: 2.2;
+    transition: transform 0.2s ease;
 }
 
 .hero-action:hover {
