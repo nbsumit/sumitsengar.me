@@ -238,26 +238,29 @@ button {
 /* --- Header & Navigation --- */
 .site-header {
     width: 100%;
-    padding: clamp(1.2rem, 2.5vw, 1.85rem) 0;
+    padding: clamp(1rem, 2vw, 1.6rem) 0;
     border-bottom: 1px solid var(--border-subtle);
-    background-color: rgba(250, 247, 249, 0.82);
+    background-color: rgba(250, 247, 249, 0.85);
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    transition: border-color 0.25s ease, background-color 0.25s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .dark-theme .site-header,
 [data-theme="dark"] .site-header {
-    background-color: rgba(16, 17, 25, 0.82);
+    background-color: rgba(16, 17, 25, 0.85);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 
 .site-header .site-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 0.75rem;
 }
 
 .site-brand {
@@ -268,11 +271,18 @@ button {
     font-weight: 700;
     letter-spacing: -0.01em;
     color: var(--text);
-    transition: transform 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .site-brand:hover {
     transform: scale(1.02);
+}
+
+.site-brand:active {
+    transform: scale(0.98);
 }
 
 .site-brand .brand-mark {
@@ -282,9 +292,10 @@ button {
 }
 
 .site-nav {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: clamp(0.75rem, 2vw, 1.5rem);
+    gap: clamp(0.5rem, 1.5vw, 1.25rem);
+    flex-shrink: 0;
 }
 
 .nav-link {
@@ -293,9 +304,10 @@ button {
     letter-spacing: 0.02em;
     color: var(--text-secondary);
     position: relative;
-    padding: 0.4rem 0.9rem;
+    padding: 0.4rem 0.85rem;
     border-radius: var(--radius-full);
-    transition: color 0.2s ease, background-color 0.2s ease;
+    white-space: nowrap;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
 }
 
 .nav-link:hover {
@@ -303,13 +315,21 @@ button {
     background-color: var(--accent-subtle);
 }
 
+.nav-link:active {
+    transform: scale(0.96);
+    background-color: var(--accent-subtle);
+    color: var(--accent);
+}
+
 /* Theme Switcher Button */
 .theme-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    min-width: 2.4rem;
+    min-height: 2.4rem;
     border-radius: var(--radius-full);
     border: 1px solid var(--border);
     color: var(--text-secondary);
@@ -328,6 +348,10 @@ button {
     border-color: var(--accent);
     transform: rotate(15deg) scale(1.06);
     box-shadow: 0 4px 14px var(--accent-subtle);
+}
+
+.theme-toggle:active {
+    transform: scale(0.92);
 }
 
 .theme-toggle svg {
@@ -816,8 +840,29 @@ main {
 
 /* --- Responsive Adaptations --- */
 @media (max-width: 768px) {
+    .site-header {
+        padding: 0.85rem 0;
+    }
+
     .site-nav {
-        gap: 1.1rem;
+        gap: 0.4rem;
+    }
+
+    .nav-link {
+        font-size: 0.88rem;
+        padding: 0.35rem 0.65rem;
+    }
+
+    .theme-toggle {
+        width: 2.2rem;
+        height: 2.2rem;
+        min-width: 2.2rem;
+        min-height: 2.2rem;
+    }
+
+    .theme-toggle svg {
+        width: 1.05rem;
+        height: 1.05rem;
     }
 
     .hero-eyebrow {
@@ -845,17 +890,40 @@ main {
 }
 
 @media (max-width: 480px) {
+    .site-header {
+        padding: 0.75rem 0;
+    }
+
+    .site-header .site-wrapper {
+        padding: 0 1rem;
+        gap: 0.5rem;
+    }
+
     .site-brand {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
+    }
+
+    .site-nav {
+        gap: 0.45rem;
     }
 
     .nav-link {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 0.35rem 0.65rem;
     }
 
     .theme-toggle {
-        width: 2.15rem;
-        height: 2.15rem;
+        width: 2.1rem;
+        height: 2.1rem;
+        min-width: 2.1rem;
+        min-height: 2.1rem;
+        margin-left: 0.2rem;
+    }
+
+    .theme-toggle svg {
+        width: 1.05rem;
+        height: 1.05rem;
     }
 
     .hero-title {
@@ -892,6 +960,38 @@ main {
 
     .about-signature {
         font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .site-header .site-wrapper {
+        padding: 0 0.75rem;
+        gap: 0.35rem;
+    }
+
+    .site-brand {
+        font-size: 1.05rem;
+    }
+
+    .site-nav {
+        gap: 0.15rem;
+    }
+
+    .nav-link {
+        font-size: 0.78rem;
+        padding: 0.28rem 0.45rem;
+    }
+
+    .theme-toggle {
+        width: 1.95rem;
+        height: 1.95rem;
+        min-width: 1.95rem;
+        min-height: 1.95rem;
+    }
+
+    .theme-toggle svg {
+        width: 0.95rem;
+        height: 0.95rem;
     }
 }
 
