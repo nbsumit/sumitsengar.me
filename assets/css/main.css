@@ -94,25 +94,36 @@
 
 /* --- Design Tokens & Themes --- */
 :root {
-    /* Refined Light Theme (Warm Paper / Editorial Ivory) */
-    --bg: #faf8f5;
+    /* Theme: Calm, Cool, Love (Light Mode - Pearl Rose Mist & Tranquil Waters) */
+    --bg: #faf7f9;
     --bg-surface: #ffffff;
-    --bg-subtle: #f3efe7;
-    --text: #1c1b18;
-    --text-secondary: #57534d;
-    --text-muted: #858076;
-    --border: #e6e1d6;
-    --border-subtle: #f0ebe0;
-    --accent: #9c4134;
-    --accent-hover: #823428;
-    --accent-subtle: rgba(156, 65, 52, 0.08);
-    --focus-ring: rgba(156, 65, 52, 0.35);
-    --card-hover-shadow: 0 8px 24px -6px rgba(28, 27, 24, 0.06);
+    --bg-subtle: #f3ecf2;
+    --text: #24222b;
+    --text-secondary: #5f596b;
+    --text-muted: #958e9f;
+    --border: #ece4ec;
+    --border-subtle: #f6eff5;
+
+    /* Romantic, soothing accent palette */
+    --accent: #b65272;          /* Poetic calm rose */
+    --accent-hover: #9c3f5d;
+    --accent-subtle: rgba(182, 82, 114, 0.09);
+    --accent-cool: #5f7d9c;     /* Calm cool sky/water */
+    --accent-cool-subtle: rgba(95, 125, 156, 0.1);
+    --focus-ring: rgba(182, 82, 114, 0.28);
+    --card-hover-shadow: 0 16px 36px -10px rgba(182, 82, 114, 0.12), 0 4px 12px -2px rgba(36, 34, 43, 0.04);
 
     /* Typography */
     --font-serif: 'PlayfairDisplay', Georgia, 'Times New Roman', serif;
     --font-sans: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-signature: 'Alex Brush', 'Brush Script MT', 'Segoe Script', cursive;
+
+    /* Rounded geometry: soft, organic, kind to the eyes */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-xl: 30px;
+    --radius-full: 9999px;
 
     /* Layout Measures */
     --site-max-width: 880px;
@@ -120,22 +131,25 @@
     --section-spacing: clamp(4.5rem, 8vw, 7.5rem);
 }
 
-/* Dark Theme (Quiet Midnight Ink & Warm Parchment) */
+/* Theme: Calm, Cool, Love (Dark Mode - Midnight Lavender & Glowing Blossom) */
 .dark-theme,
 [data-theme="dark"] {
-    --bg: #131312;
-    --bg-surface: #181816;
-    --bg-subtle: #201f1c;
-    --text: #edeae2;
-    --text-secondary: #a39f94;
-    --text-muted: #736f66;
-    --border: #2c2b26;
-    --border-subtle: #201f1c;
-    --accent: #d48b78;
-    --accent-hover: #e2a08f;
-    --accent-subtle: rgba(212, 139, 120, 0.12);
-    --focus-ring: rgba(212, 139, 120, 0.4);
-    --card-hover-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.4);
+    --bg: #101119;
+    --bg-surface: #171825;
+    --bg-subtle: #212336;
+    --text: #f3f1f7;
+    --text-secondary: #a7a3b8;
+    --text-muted: #747087;
+    --border: rgba(235, 225, 245, 0.1);
+    --border-subtle: rgba(235, 225, 245, 0.05);
+
+    --accent: #f29bb5;          /* Tender luminous blossom rose */
+    --accent-hover: #fbbcd1;
+    --accent-subtle: rgba(242, 155, 181, 0.14);
+    --accent-cool: #8bb3dc;     /* Calm cool starlight blue */
+    --accent-cool-subtle: rgba(139, 179, 220, 0.12);
+    --focus-ring: rgba(242, 155, 181, 0.35);
+    --card-hover-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 25px -5px rgba(242, 155, 181, 0.12);
 }
 
 /* --- Base & Reset --- */
@@ -155,6 +169,11 @@ html {
 
 body {
     background-color: var(--bg);
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(245, 218, 230, 0.42) 0%, transparent 40%),
+        radial-gradient(circle at 88% 20%, rgba(218, 232, 248, 0.45) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(238, 226, 244, 0.35) 0%, transparent 50%);
+    background-attachment: fixed;
     color: var(--text);
     font-family: var(--font-sans);
     font-size: clamp(1.025rem, 0.4vw + 0.95rem, 1.125rem);
@@ -163,7 +182,15 @@ body {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-theme,
+[data-theme="dark"] body {
+    background-image:
+        radial-gradient(circle at 12% 8%, rgba(120, 40, 75, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 88% 20%, rgba(30, 60, 105, 0.22) 0%, transparent 50%),
+        radial-gradient(circle at 50% 85%, rgba(65, 40, 90, 0.16) 0%, transparent 55%);
 }
 
 ::selection {
@@ -175,7 +202,7 @@ body {
 :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
 }
 
 /* Headings */
@@ -211,15 +238,20 @@ button {
 /* --- Header & Navigation --- */
 .site-header {
     width: 100%;
-    padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+    padding: clamp(1.2rem, 2.5vw, 1.85rem) 0;
     border-bottom: 1px solid var(--border-subtle);
-    background-color: var(--bg);
+    background-color: rgba(250, 247, 249, 0.82);
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.dark-theme .site-header,
+[data-theme="dark"] .site-header {
+    background-color: rgba(16, 17, 25, 0.82);
 }
 
 .site-header .site-wrapper {
@@ -236,6 +268,11 @@ button {
     font-weight: 700;
     letter-spacing: -0.01em;
     color: var(--text);
+    transition: transform 0.2s ease;
+}
+
+.site-brand:hover {
+    transform: scale(1.02);
 }
 
 .site-brand .brand-mark {
@@ -247,34 +284,23 @@ button {
 .site-nav {
     display: flex;
     align-items: center;
-    gap: clamp(1.25rem, 2.5vw, 2rem);
+    gap: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 .nav-link {
     font-size: 0.95rem;
-    letter-spacing: 0.03em;
+    font-weight: 500;
+    letter-spacing: 0.02em;
     color: var(--text-secondary);
     position: relative;
-    padding: 0.25rem 0;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 1px;
-    background-color: var(--accent);
-    transition: width 0.25s ease;
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radius-full);
+    transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .nav-link:hover {
-    color: var(--text);
-}
-
-.nav-link:hover::after {
-    width: 100%;
+    color: var(--accent);
+    background-color: var(--accent-subtle);
 }
 
 /* Theme Switcher Button */
@@ -282,24 +308,26 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.35rem;
-    height: 2.35rem;
-    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-full);
     border: 1px solid var(--border);
     color: var(--text-secondary);
     background-color: var(--bg-surface);
+    box-shadow: 0 2px 8px rgba(36, 34, 43, 0.04);
     padding: 0;
     margin: 0;
     line-height: 0;
     box-sizing: border-box;
     flex-shrink: 0;
-    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.25s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .theme-toggle:hover {
     color: var(--accent);
     border-color: var(--accent);
-    transform: rotate(12deg);
+    transform: rotate(15deg) scale(1.06);
+    box-shadow: 0 4px 14px var(--accent-subtle);
 }
 
 .theme-toggle svg {
@@ -329,24 +357,32 @@ main {
     align-items: flex-start;
 }
 
-/* Visual vertical border-left separator before Personal Journal & Essays */
+/* Visual floating pill badge before Personal Journal & Essays */
 .hero-eyebrow {
     display: inline-flex;
     align-items: center;
-    font-size: 0.8rem;
+    gap: 0.5rem;
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--accent);
+    background-color: var(--accent-subtle);
+    border: 1px solid rgba(182, 82, 114, 0.15);
+    padding: 0.38rem 1rem;
+    border-radius: var(--radius-full);
     margin-bottom: 1.75rem;
-    border-left: 2.5px solid currentColor;
-    padding-left: 0.75rem;
-    line-height: 1.15;
+    line-height: 1.2;
+}
+
+.dark-theme .hero-eyebrow,
+[data-theme="dark"] .hero-eyebrow {
+    border-color: rgba(242, 155, 181, 0.2);
 }
 
 .hero-title {
     font-size: clamp(2.75rem, 6.5vw + 0.5rem, 5.25rem);
-    line-height: 1.08;
+    line-height: 1.1;
     letter-spacing: -0.025em;
     font-weight: 700;
     color: var(--text);
@@ -357,12 +393,12 @@ main {
 .hero-title .title-italic {
     font-weight: 400;
     font-style: italic;
-    color: var(--text-secondary);
+    color: var(--accent);
 }
 
 .hero-description {
     font-size: clamp(1.075rem, 1.2vw + 0.6rem, 1.3rem);
-    line-height: 1.7;
+    line-height: 1.75;
     color: var(--text-secondary);
     max-width: 38ch;
     margin-bottom: 2.5rem;
@@ -371,15 +407,18 @@ main {
 .hero-action {
     display: inline-flex;
     align-items: center;
-    gap: 1.15rem;
-    font-size: 1.05rem;
-    font-weight: 700;
+    gap: 0.75rem;
+    font-size: 0.98rem;
+    font-weight: 600;
     letter-spacing: 0.02em;
-    color: var(--accent);
-    padding-bottom: 0.3rem;
-    border-bottom: 1px solid transparent;
+    color: var(--text);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1.65rem;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 16px -3px rgba(36, 34, 43, 0.05);
     text-decoration: none;
-    transition: border-color 0.25s ease;
+    transition: all 0.25s ease;
 }
 
 .hero-action .action-arrow {
@@ -398,11 +437,14 @@ main {
     height: 1.05rem;
     display: block;
     stroke-width: 2.2;
-    transition: transform 0.2s ease;
+    transition: transform 0.25s ease;
 }
 
 .hero-action:hover {
-    border-bottom-color: var(--accent);
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--card-hover-shadow);
 }
 
 .hero-action:hover svg {
@@ -422,21 +464,24 @@ main {
     justify-content: space-between;
     margin-bottom: 2.75rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .section-title-wrap {
     display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.85rem;
 }
 
 .section-num {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background-color: var(--accent-subtle);
+    padding: 0.2rem 0.65rem;
+    border-radius: var(--radius-full);
 }
 
 .section-title {
@@ -459,21 +504,22 @@ main {
     gap: 1.75rem;
 }
 
-/* Future Post Item Layout */
+/* Post Item Card with Rounded Corners */
 .post-item {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
-    padding: 1.75rem clamp(1.25rem, 3vw, 2rem);
+    gap: 0.85rem;
+    padding: clamp(1.75rem, 3.5vw, 2.5rem);
     background-color: var(--bg-surface);
     border: 1px solid var(--border);
-    border-radius: 4px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px -4px rgba(36, 34, 43, 0.03);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .post-item:hover {
     border-color: var(--accent);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     box-shadow: var(--card-hover-shadow);
 }
 
@@ -486,18 +532,20 @@ main {
 }
 
 .post-tag {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--accent);
     background-color: var(--accent-subtle);
-    padding: 0.15rem 0.5rem;
-    border-radius: 2px;
+    border: 1px solid rgba(182, 82, 114, 0.12);
+    padding: 0.25rem 0.85rem;
+    border-radius: var(--radius-full);
+    line-height: 1.2;
 }
 
 .post-separator {
-    opacity: 0.5;
+    opacity: 0.45;
 }
 
 .post-item-title {
@@ -507,6 +555,7 @@ main {
 
 .post-item-title a {
     color: var(--text);
+    transition: color 0.2s ease;
 }
 
 .post-item-title a:hover {
@@ -515,18 +564,23 @@ main {
 
 .post-item-excerpt {
     font-size: 0.98rem;
-    line-height: 1.65;
+    line-height: 1.7;
     color: var(--text-secondary);
 }
 
 .post-item-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
     font-size: 0.9rem;
     font-weight: 700;
     color: var(--accent);
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
+    padding: 0.4rem 0.95rem;
+    margin-left: -0.95rem;
+    border-radius: var(--radius-full);
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+    width: fit-content;
 }
 
 .post-item-link svg {
@@ -535,20 +589,25 @@ main {
     transition: transform 0.2s ease;
 }
 
+.post-item-link:hover {
+    background-color: var(--accent-subtle);
+}
+
 .post-item-link:hover svg {
     transform: translateX(3px);
 }
 
 /* --- Intentional Empty State --- */
 .writings-empty {
-    padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
+    padding: clamp(3.5rem, 7vw, 5rem) clamp(1.5rem, 4vw, 3rem);
     border: 1px dashed var(--border);
-    border-radius: 4px;
+    border-radius: var(--radius-xl);
     background-color: var(--bg-surface);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    box-shadow: 0 4px 20px -4px rgba(36, 34, 43, 0.02);
     transition: border-color 0.25s ease, background-color 0.25s ease;
 }
 
@@ -590,10 +649,27 @@ main {
 
 /* --- About Section --- */
 .about-content {
-    padding-top: clamp(2rem, 4vw, 3.5rem);
+    padding: clamp(2rem, 4vw, 3.25rem);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 6px 24px -6px rgba(36, 34, 43, 0.04);
     display: flex;
     flex-direction: column;
     max-width: var(--reading-max-width);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-cool));
+    border-radius: var(--radius-full);
 }
 
 .about-text {
@@ -615,8 +691,8 @@ main {
     font-family: var(--font-signature);
     font-weight: 400;
     font-style: normal;
-    font-size: clamp(1.75rem, 2vw + 1rem, 2.35rem);
-    color: var(--text-muted);
+    font-size: clamp(1.9rem, 2.5vw + 1rem, 2.5rem);
+    color: var(--accent);
     letter-spacing: 0.02em;
     text-align: right;
     line-height: 1.4;
@@ -627,7 +703,7 @@ main {
 .site-footer {
     padding-top: clamp(3.5rem, 6vw, 5rem);
     padding-bottom: clamp(3rem, 5vw, 4rem);
-    background-color: var(--bg);
+    background-color: transparent;
 }
 
 .footer-inner {
@@ -642,7 +718,7 @@ main {
     font-family: var(--font-serif);
     font-style: italic;
     font-size: clamp(1.35rem, 2vw + 0.5rem, 1.85rem);
-    color: var(--text);
+    color: var(--accent);
     letter-spacing: -0.01em;
 }
 
@@ -662,9 +738,9 @@ main {
     height: 3.25rem;
     min-width: 3.25rem;
     min-height: 3.25rem;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     border: 1px solid var(--border);
-    color: var(--text);
+    color: var(--text-secondary);
     background-color: var(--bg-surface);
     padding: 0;
     margin: 0;
@@ -673,7 +749,8 @@ main {
     box-sizing: border-box;
     flex-shrink: 0;
     text-decoration: none;
-    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 2px 8px rgba(36, 34, 43, 0.03);
+    transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .footer-circle-link svg {
@@ -688,12 +765,14 @@ main {
 .footer-circle-link:hover {
     color: var(--accent);
     border-color: var(--accent);
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 18px var(--accent-subtle);
 }
 
 .footer-circle-link:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
+    border-radius: var(--radius-full);
 }
 
 .footer-meta {
