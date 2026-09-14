@@ -573,20 +573,34 @@ main {
     align-items: center;
     gap: 0.5rem;
     font-size: 0.9rem;
+    line-height: 1;
     font-weight: 700;
     color: var(--accent);
-    margin-top: 0.4rem;
-    padding: 0.4rem 0.95rem;
-    margin-left: -0.95rem;
+    margin-top: 0.45rem;
+    padding: 0.5rem 1rem;
+    margin-left: -1rem;
     border-radius: var(--radius-full);
     transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
     width: fit-content;
 }
 
-.post-item-link svg {
+.post-item-link .post-item-arrow,
+.post-item-link [data-icon] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
     width: 0.95rem;
     height: 0.95rem;
-    transition: transform 0.2s ease;
+    position: relative;
+    top: 1px;
+}
+
+.post-item-link svg {
+    display: block;
+    width: 0.95rem;
+    height: 0.95rem;
+    transition: transform 0.25s ease;
 }
 
 .post-item-link:hover {
