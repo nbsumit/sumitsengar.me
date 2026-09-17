@@ -1,582 +1,530 @@
 /* ==========================================================================
-   Sumit Sengar | Essay Reading Stylesheet
-   Minimal, typography-driven reading experience
+   Sumit Sengar | Personal Writing Space
+   Theme: Quiet Literary Sanctuary - Article & Reading Experience
+   Designed for intimate prose reading, calm pacing, and reader emotional resonance
    ========================================================================== */
 
 @import url('main.css');
 
-/* --- Page Layout --- */
+/* --------------------------------------------------------------------------
+   1. Reading Progress Bar
+   -------------------------------------------------------------------------- */
+.reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background-color: var(--accent);
+    z-index: 10000;
+    width: 0%;
+    transition: width 0.08s linear;
+    pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. Article Page Layout
+   -------------------------------------------------------------------------- */
 .article-page {
-    width: 100%;
-    padding-top: clamp(2.5rem, 5vw, 4.5rem);
-    padding-bottom: clamp(4rem, 8vw, 6.5rem);
+    padding: 3rem 0 4.5rem;
 }
 
 .article-container {
     width: 100%;
-    max-width: 780px;
+    max-width: 680px;
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2rem);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
 }
 
-/* --- Back Link --- */
+/* --------------------------------------------------------------------------
+   3. Back to Writings Link
+   -------------------------------------------------------------------------- */
 .article-back-nav {
-    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 2.5rem;
 }
 
 .back-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    font-size: 0.9rem;
+    gap: 0.55rem;
+    font-size: 0.875rem;
     font-weight: 500;
-    letter-spacing: 0.01em;
-    text-transform: none;
     color: var(--text-secondary);
     background-color: var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-full);
-    padding: 0.5rem 1.25rem;
-    box-shadow: 0 2px 8px rgba(36, 34, 43, 0.03);
-    text-decoration: none;
-    transition-property: color, background-color, border-color, transform, box-shadow;
-    transition-duration: 0.2s;
-    transition-timing-function: ease;
+    padding: 0.45rem 1.15rem;
+    box-shadow: var(--shadow-subtle);
+    line-height: 1;
+    transition-property: color, border-color, background-color, transform, box-shadow;
+    transition-duration: var(--transition-normal);
 }
 
-.back-link .back-arrow {
+.back-arrow {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 0.95rem;
+    height: 0.95rem;
+    flex-shrink: 0;
     line-height: 0;
-    width: 0.9rem;
-    height: 0.9rem;
 }
 
-.back-link svg {
-    width: 0.9rem;
-    height: 0.9rem;
+.back-arrow svg {
     display: block;
+    width: 100%;
+    height: 100%;
     stroke-width: 2.2;
-    transition: transform 0.25s ease;
+    stroke: currentColor;
+    transition-property: transform;
+    transition-duration: var(--transition-normal);
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .back-link:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-        transform: translateX(-3px);
-        box-shadow: 0 4px 14px var(--accent-subtle);
-    }
-
-    .back-link:hover svg {
-        transform: translateX(-2px);
-    }
+.back-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background-color: var(--bg-subtle);
+    box-shadow: var(--shadow-card);
+    transform: translateX(-2px);
 }
 
-.back-link:active {
-    transform: scale(0.97);
+.back-link:hover .back-arrow svg {
+    transform: translateX(-3px);
 }
 
-/* --- Article Header --- */
+/* --------------------------------------------------------------------------
+   4. Article Header
+   -------------------------------------------------------------------------- */
 .article-header {
-    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 2.75rem;
+    padding-bottom: 1.85rem;
+    border-bottom: 1px solid var(--border);
 }
 
 .article-tag {
-    display: inline-block;
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    white-space: nowrap;
+    letter-spacing: 0.12em;
     color: var(--accent);
     background-color: var(--accent-subtle);
-    border: 1px solid rgba(182, 82, 114, 0.15);
-    padding: 0.35rem 0.95rem;
-    border-radius: var(--radius-full);
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.1rem;
 }
 
 .article-title {
-    font-size: clamp(2.2rem, 5vw + 0.5rem, 3.5rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    font-weight: 500;
+    line-height: 1.22;
     color: var(--text);
-    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.15rem;
     text-wrap: balance;
 }
 
 .article-meta {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.88rem;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    font-size: 0.875rem;
     color: var(--text-muted);
 }
 
-.article-meta time,
-.article-meta #read-time {
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums lining-nums;
-}
-
 .meta-separator {
-    opacity: 0.45;
-    user-select: none;
+    color: var(--border);
+    font-size: 0.65rem;
 }
 
-/* --- Article Body Typography --- */
-.blog-content {
-    max-width: var(--reading-max-width);
-    font-size: clamp(1.05rem, 0.4vw + 0.98rem, 1.18rem);
-    line-height: 1.9;
-    color: var(--text);
-}
-
+/* --------------------------------------------------------------------------
+   5. Epigraph & Prologue
+   -------------------------------------------------------------------------- */
 .article-prologue {
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: clamp(1.12rem, 0.4vw + 1rem, 1.25rem);
+    font-size: 1.1875rem;
     line-height: 1.75;
-    color: var(--accent);
-    margin-bottom: 2.25rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px dashed var(--border);
-    opacity: 0.92;
+    color: var(--text);
+    background-color: var(--bg-subtle);
+    border-left: 3px solid var(--accent);
+    padding: 1.35rem 1.85rem;
+    margin-bottom: 2.75rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   6. Longform Reading Prose & Typography
+   -------------------------------------------------------------------------- */
+.blog-content {
+    font-size: 1.125rem;
+    line-height: 1.88;
+    color: var(--text);
 }
 
 .blog-content p {
-    margin-bottom: 2rem;
+    margin-bottom: 1.9rem;
     text-wrap: pretty;
+    color: var(--text);
 }
 
 .blog-content .lead {
-    font-size: clamp(1.15rem, 0.4vw + 1.05rem, 1.25rem);
+    font-size: 1.2rem;
     line-height: 1.85;
     color: var(--text);
-    font-family: var(--font-serif);
-    font-style: italic;
-    position: relative;
+    font-weight: 400;
+    margin-bottom: 2.15rem;
 }
 
+/* Classical Literary Drop-cap on the lead paragraph */
 .blog-content .lead::first-letter {
-    float: left;
     font-family: var(--font-serif);
-    font-size: clamp(3.2rem, 5vw, 4rem);
+    font-size: 3.35em;
     line-height: 0.82;
-    padding-top: 0.12em;
-    padding-right: 0.18em;
-    padding-bottom: 0.04em;
+    float: left;
+    margin: 0.08em 0.16em 0 0;
     color: var(--accent);
-    font-style: normal;
+    font-weight: 600;
+}
+
+.blog-content em,
+.blog-content i {
+    font-style: italic;
+    font-family: var(--font-serif);
+}
+
+.blog-content strong,
+.blog-content b {
     font-weight: 700;
+    color: var(--text);
 }
 
-.blog-content h2 {
-    font-size: clamp(1.6rem, 2.5vw + 0.5rem, 2.15rem);
-    letter-spacing: -0.015em;
-    margin-top: 3.25rem;
-    margin-bottom: 1.25rem;
-}
-
-.blog-content h3 {
-    font-size: clamp(1.3rem, 1.8vw + 0.5rem, 1.6rem);
-    letter-spacing: -0.01em;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.blog-content h4 {
-    font-size: 1.15rem;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-}
-
-.blog-content a {
-    color: var(--accent);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-    transition: opacity 0.2s ease;
-}
-
-.blog-content a:hover {
-    opacity: 0.8;
-}
-
-/* Blockquotes with Soft Rounded Corner Box */
+/* Quiet Contemplative Blockquotes */
 .blog-content blockquote {
-    margin: clamp(2.5rem, 5vw, 3.5rem) 0;
-    padding: clamp(2rem, 4.5vw, 2.75rem) clamp(1.75rem, 4vw, 2.5rem) clamp(2rem, 4.5vw, 2.75rem) clamp(2.25rem, 5vw, 3rem);
-    border-left: 4px solid var(--accent);
-    background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-subtle) 100%);
-    border-radius: var(--radius-lg);
-    border-top: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 8px 30px -6px rgba(36, 34, 43, 0.04);
+    margin: 2.75rem 0;
+    padding: 1.6rem 2rem;
+    background-color: var(--bg-subtle);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: clamp(1.18rem, 1vw + 1.05rem, 1.38rem);
-    line-height: 1.8;
+    font-size: 1.2rem;
+    line-height: 1.75;
     color: var(--text);
     position: relative;
 }
 
-.blog-content blockquote::after {
-    content: '“';
-    position: absolute;
-    top: -0.25rem;
-    right: 1.25rem;
-    font-size: 5rem;
-    line-height: 1;
-    font-family: var(--font-serif);
-    color: var(--accent);
-    opacity: 0.12;
-    pointer-events: none;
-    user-select: none;
-}
-
-.blog-content blockquote p:last-child {
+.blog-content blockquote p {
     margin-bottom: 0;
-}
-
-.blog-content blockquote cite {
-    display: block;
-    margin-top: 0.85rem;
-    font-family: var(--font-sans);
-    font-style: normal;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--accent);
+    text-wrap: pretty;
 }
 
 /* Lists */
 .blog-content ul,
 .blog-content ol {
-    margin: 1.75rem 0;
-    padding-left: 1.65rem;
+    margin: 1.5rem 0 2rem 1.85rem;
+    color: var(--text-secondary);
+    line-height: 1.85;
 }
 
 .blog-content li {
-    margin-bottom: 0.75rem;
-    line-height: 1.75;
+    margin-bottom: 0.65rem;
 }
 
 /* Figures & Images */
 .blog-content figure {
-    margin: 3rem 0;
+    margin: 2.75rem 0;
 }
 
-.blog-content figure img {
+.blog-content figure img,
+.blog-content img {
     width: 100%;
     height: auto;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-subtle);
-    outline: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    outline: 1px solid rgba(0, 0, 0, 0.06);
     outline-offset: -1px;
     display: block;
 }
 
-.dark-theme .blog-content figure img,
-[data-theme="dark"] .blog-content figure img {
+[data-theme="dark"] .blog-content figure img,
+.dark-theme .blog-content figure img {
     outline-color: rgba(255, 255, 255, 0.08);
 }
 
 .blog-content figcaption {
     margin-top: 0.85rem;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     color: var(--text-muted);
     text-align: center;
     font-style: italic;
 }
 
-/* Code & Preformatted */
-.blog-content code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.88em;
-    padding: 0.15em 0.45em;
-    background-color: var(--bg-subtle);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
-    color: var(--text);
+/* Article Divider */
+.blog-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3rem auto;
+    width: 50%;
 }
 
-.blog-content pre {
-    margin: 2.25rem 0;
-    padding: 1.25rem 1.5rem;
+/* --------------------------------------------------------------------------
+   7. Article Signature
+   -------------------------------------------------------------------------- */
+.article-footer {
+    margin-top: 3.25rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border-subtle);
+    text-align: right;
+}
+
+.article-signature {
+    font-family: var(--font-script);
+    font-size: 2.35rem;
+    color: var(--accent);
+    line-height: 1;
+    transform: rotate(-2deg);
+    user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   8. Reader Reflection Card
+   -------------------------------------------------------------------------- */
+.reflection-card {
+    margin-top: 3.5rem;
+    padding: 2.35rem 2.5rem;
     background-color: var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    overflow-x: auto;
-    line-height: 1.6;
-}
-
-.blog-content pre code {
-    background: none;
-    border: none;
-    padding: 0;
-    font-size: 0.9em;
-}
-
-/* Horizontal Rule / Divider (hidden for seamless essay flow) */
-.blog-content hr {
-    display: none;
-}
-
-/* --- Reflection & Reader Connection Card --- */
-.reflection-card {
-    margin-top: clamp(3.5rem, 6vw, 5rem);
-    margin-bottom: 2rem;
-    padding: clamp(1.75rem, 3.5vw, 2.5rem);
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 6px 24px -6px rgba(36, 34, 43, 0.04);
-    display: flex;
-    flex-direction: column;
-    gap: 1.15rem;
+    box-shadow: var(--shadow-card);
     position: relative;
-    overflow: hidden;
 }
 
 .reflection-card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 3.5px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-cool));
-    border-radius: var(--radius-full);
+    left: 2.5rem;
+    width: 2.5rem;
+    height: 3px;
+    background-color: var(--accent);
+    border-radius: 0 0 2px 2px;
 }
 
 .reflection-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    margin-bottom: 0.4rem;
 }
 
 .reflection-tag {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     color: var(--accent);
-    background-color: var(--accent-subtle);
-    border: 1px solid rgba(182, 82, 114, 0.15);
-    padding: 0.25rem 0.85rem;
-    border-radius: var(--radius-full);
-    line-height: 1.2;
 }
 
 .reflection-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.25rem, 2vw + 0.5rem, 1.55rem);
-    font-weight: 600;
+    font-size: 1.35rem;
+    font-weight: 500;
     color: var(--text);
-    line-height: 1.3;
+    margin-bottom: 0.85rem;
     text-wrap: balance;
 }
 
 .reflection-desc {
-    font-size: 1rem;
+    font-size: 0.9875rem;
     line-height: 1.8;
     color: var(--text-secondary);
+    margin-bottom: 1.75rem;
     text-wrap: pretty;
 }
 
 .reflection-actions {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.85rem;
-    margin-top: 0.5rem;
 }
 
 .reflection-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
-    font-size: 0.88rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
     font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--text);
+    color: var(--text-secondary);
     background-color: var(--bg-subtle);
     border: 1px solid var(--border);
-    padding: 0.6rem 1.25rem;
-    border-radius: var(--radius-full);
-    text-decoration: none;
-    transition-property: color, background-color, border-color, transform, box-shadow;
-    transition-duration: 0.2s;
-    transition-timing-function: ease;
+    box-shadow: var(--shadow-subtle);
+    line-height: 1;
     cursor: pointer;
+    transition-property: color, border-color, background-color, transform, box-shadow;
+    transition-duration: var(--transition-normal);
+}
+
+.reflection-btn [data-icon] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 0.95rem;
+    height: 0.95rem;
+    line-height: 0;
+    flex-shrink: 0;
 }
 
 .reflection-btn svg {
-    width: 1rem;
-    height: 1rem;
     display: block;
+    width: 100%;
+    height: 100%;
     stroke-width: 2;
+    stroke: currentColor;
+    transition-property: transform;
+    transition-duration: var(--transition-normal);
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .reflection-btn:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-        background-color: var(--accent-subtle);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 14px var(--accent-subtle);
-    }
-
-    .reflection-btn.copy-link-btn:hover {
-        background-color: var(--accent);
-        color: #ffffff;
-        border-color: var(--accent);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 14px var(--accent-subtle);
-    }
-}
-
-.reflection-btn:active {
-    transform: scale(0.96);
-}
-
-.reflection-btn.copy-link-btn {
-    background-color: var(--accent-subtle);
-    border-color: rgba(178, 77, 111, 0.22);
+.reflection-btn:hover {
     color: var(--accent);
-    font-weight: 600;
+    border-color: var(--accent);
+    background-color: var(--bg-surface);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
 }
 
-.reflection-btn.copy-link-btn svg {
-    stroke-width: 2.2;
+.reflection-btn:hover svg {
+    transform: scale(1.12);
 }
 
-.reflection-btn.is-copied {
-    color: #ffffff !important;
-    background-color: var(--accent) !important;
-    border-color: var(--accent) !important;
+.reflection-btn.copy-link-btn.is-copied {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
 }
 
-/* --- Article Footer / Signature --- */
-.article-footer {
-    margin-top: clamp(2.5rem, 4vw, 3.5rem);
-    padding-top: 0;
-    border-top: none;
+.reflection-btn.copy-link-btn.is-copied svg {
+    stroke: #ffffff;
 }
 
-.article-signature {
-    font-family: var(--font-signature);
-    font-weight: 400;
-    font-style: normal;
-    font-size: clamp(1.9rem, 2.5vw + 1rem, 2.5rem);
-    color: var(--accent);
-    text-align: right;
-    letter-spacing: 0.02em;
-    line-height: 1.4;
-    user-select: none;
-}
-
-/* --- Bottom Article Navigation --- */
+/* --------------------------------------------------------------------------
+   9. Bottom Article Navigation
+   -------------------------------------------------------------------------- */
 .article-bottom-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    margin-top: clamp(2.5rem, 5vw, 3.5rem);
-    padding-top: 1.75rem;
-    border-top: 1px solid var(--border-subtle);
+    margin-top: 3.5rem;
+    padding-top: 1.85rem;
+    border-top: 1px solid var(--border);
 }
 
 .bottom-nav-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    font-size: 0.92rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    font-weight: 500;
     color: var(--text-secondary);
     background-color: var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-full);
     padding: 0.55rem 1.25rem;
-    min-height: 2.35rem;
-    box-shadow: 0 2px 8px rgba(36, 34, 43, 0.03);
-    text-decoration: none;
-    touch-action: manipulation;
-    transition-property: color, background-color, border-color, transform, box-shadow;
-    transition-duration: 0.2s;
-    transition-timing-function: ease;
+    box-shadow: var(--shadow-subtle);
+    line-height: 1;
+    transition-property: color, border-color, background-color, transform, box-shadow;
+    transition-duration: var(--transition-normal);
 }
 
+.bottom-nav-link [data-icon],
 .bottom-nav-link .back-arrow,
-.bottom-nav-link .top-arrow,
-.bottom-nav-link [data-icon] {
+.bottom-nav-link .top-arrow {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 0.95rem;
+    height: 0.95rem;
+    flex-shrink: 0;
     line-height: 0;
-    width: 0.9rem;
-    height: 0.9rem;
 }
 
 .bottom-nav-link svg {
-    width: 0.9rem;
-    height: 0.9rem;
     display: block;
+    width: 100%;
+    height: 100%;
     stroke-width: 2.2;
-    transition: transform 0.25s ease;
+    stroke: currentColor;
+    transition-property: transform;
+    transition-duration: var(--transition-normal);
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .bottom-nav-link:hover {
-        color: var(--accent);
-        border-color: var(--accent);
-        box-shadow: 0 4px 14px var(--accent-subtle);
-    }
-
-    .bottom-nav-link:hover .back-arrow svg {
-        transform: translateX(-2px);
-    }
-
-    .bottom-nav-link:hover .top-arrow svg {
-        transform: translateY(-2px);
-    }
+.bottom-nav-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background-color: var(--bg-subtle);
+    box-shadow: var(--shadow-card);
 }
 
-.bottom-nav-link:active {
-    transform: scale(0.97);
+.bottom-nav-link:hover .back-arrow svg {
+    transform: translateX(-3px);
 }
 
-/* --- Responsive --- */
-@media (max-width: 640px) {
-    .blog-content .lead::first-letter {
-        float: none;
-        font-size: inherit;
-        line-height: inherit;
-        padding: 0;
-        font-weight: inherit;
-        color: inherit;
+.bottom-nav-link:hover .top-arrow svg {
+    transform: translateY(-3px);
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsive Media Queries (Mobile & Tablet)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .article-page {
+        padding: 2.25rem 0 3.5rem;
+    }
+
+    .article-title {
+        font-size: 2.25rem;
+    }
+
+    .blog-content {
+        font-size: 1.0625rem;
+        line-height: 1.82;
+    }
+
+    .reflection-card {
+        padding: 2rem 1.75rem;
     }
 }
 
 @media (max-width: 480px) {
-    .article-title {
-        font-size: clamp(1.85rem, 8vw, 2.5rem);
+    .article-container {
+        padding-left: 1.15rem;
+        padding-right: 1.15rem;
     }
 
-    .article-signature {
-        font-size: 1.6rem;
+    .article-title {
+        font-size: 1.95rem;
+    }
+
+    .blog-content .lead::first-letter {
+        font-size: 2.75em;
+        margin-right: 0.12em;
+    }
+
+    .article-prologue {
+        padding: 1.15rem 1.35rem;
+        font-size: 1.05rem;
+    }
+
+    .blog-content blockquote {
+        padding: 1.25rem 1.4rem;
+        font-size: 1.075rem;
     }
 
     .reflection-card {
@@ -590,7 +538,7 @@
 
     .reflection-btn {
         justify-content: center;
-        min-height: 2.65rem;
+        min-height: 2.75rem;
     }
 
     .article-bottom-nav {
@@ -601,5 +549,6 @@
 
     .bottom-nav-link {
         justify-content: center;
+        min-height: 2.75rem;
     }
 }
