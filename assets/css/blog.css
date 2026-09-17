@@ -82,6 +82,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    white-space: nowrap;
     color: var(--accent);
     background-color: var(--accent-subtle);
     border: 1px solid rgba(182, 82, 114, 0.15);
@@ -107,6 +108,12 @@
     gap: 0.5rem;
     font-size: 0.88rem;
     color: var(--text-muted);
+}
+
+.article-meta time,
+.article-meta #read-time {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums lining-nums;
 }
 
 .meta-separator {
@@ -457,6 +464,17 @@
 }
 
 /* --- Responsive --- */
+@media (max-width: 640px) {
+    .blog-content .lead::first-letter {
+        float: none;
+        font-size: inherit;
+        line-height: inherit;
+        padding: 0;
+        font-weight: inherit;
+        color: inherit;
+    }
+}
+
 @media (max-width: 480px) {
     .article-title {
         font-size: clamp(1.85rem, 8vw, 2.5rem);

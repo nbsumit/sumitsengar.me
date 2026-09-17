@@ -238,11 +238,27 @@ button {
 }
 
 /* --- Header & Navigation --- */
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 200;
+    padding: 0.6rem 1rem;
+    background: var(--text);
+    color: var(--bg);
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
 .site-header {
     width: 100%;
     padding: clamp(1rem, 2vw, 1.6rem) 0;
     border-bottom: 1px solid var(--border-subtle);
-    background-color: rgba(250, 247, 249, 0.85);
+    background-color: color-mix(in srgb, var(--bg) 86%, transparent);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -513,6 +529,7 @@ main {
 .section-title-wrap {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.85rem;
 }
 
@@ -525,6 +542,7 @@ main {
     font-weight: 700;
     letter-spacing: 0.09em;
     text-transform: uppercase;
+    white-space: nowrap;
     color: var(--accent);
     background-color: var(--accent-subtle);
     border: 1px solid rgba(178, 77, 111, 0.15);
@@ -579,9 +597,28 @@ main {
 .post-meta {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.55rem 0.75rem;
     font-size: 0.85rem;
     color: var(--text-muted);
+}
+
+.post-index {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+    color: var(--accent);
+    background-color: var(--accent-subtle);
+    border: 1px solid rgba(178, 77, 111, 0.14);
+    min-width: 2.1rem;
+    text-align: center;
+    padding: 0.25rem 0.45rem;
+    border-radius: var(--radius-full);
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 .post-tag {
@@ -589,12 +626,19 @@ main {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    white-space: nowrap;
     color: var(--accent);
     background-color: var(--accent-subtle);
     border: 1px solid rgba(182, 82, 114, 0.12);
     padding: 0.25rem 0.85rem;
     border-radius: var(--radius-full);
     line-height: 1.2;
+}
+
+.post-meta time,
+.post-meta .post-readtime {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums lining-nums;
 }
 
 .post-separator {
@@ -972,6 +1016,10 @@ main {
 
 /* --- Responsive Adaptations --- */
 @media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+
     .site-header {
         padding: 0.85rem 0;
     }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include head.html %}
+</head>
+<body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="reading-progress-bar" id="reading-progress" aria-hidden="true"></div>
+    {% include header.html %}
+
+    <main class="article-page" id="main-content">
+        <article class="article-container">
+            <nav class="article-back-nav" aria-label="Back to writings">
+                <a href="{{ '/' | relative_url }}#writings" class="back-link">
+                    <span class="back-arrow" data-icon="arrowLeft"></span>
+                    <span>Return to writings</span>
+                </a>
+            </nav>
+
+            <header class="article-header">
+                <span class="article-tag">{{ page.tag | default: 'Journal' }}</span>
+                <h1 class="article-title">{{ page.title }}</h1>
+                <div class="article-meta">
+                    <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %-d, %Y' }}</time>
+                    <span class="meta-separator">•</span>
+                    <span id="read-time">{{ page.read_time | default: '4 min read' }}</span>
+                </div>
+            </header>
+
+            <div class="blog-content">
+                {% if page.epigraph %}
+                <div class="article-prologue">&ldquo; {{ page.epigraph }} &rdquo;</div>
+                {% endif %}
+                {{ content }}
+            </div>
+
+            <footer class="article-footer">
+                <div class="article-signature">- Sumit Sengar</div>
+            </footer>
+
+            <section class="reflection-card" aria-label="Reader Reflection">
+                <div class="reflection-header">
+                    <span class="reflection-tag">Quiet Reflection</span>
+                </div>
+                <h3 class="reflection-title">Did this resonate with you?</h3>
+                <p class="reflection-desc">
+                    If these words reached a quiet corner of your heart, you are never truly alone in the silence. Feel free to pass this reflection along to someone carrying quiet weight, or write a gentle note.
+                </p>
+                <div class="reflection-actions">
+                    <button type="button" class="reflection-btn copy-link-btn" aria-label="Copy link to this reflection">
+                        <span data-icon="copy"></span>
+                        <span class="btn-label">Copy reflection link</span>
+                    </button>
+                    <a href="mailto:{{ site.email }}?subject=Reading%20'{{ page.title | url_encode }}'&body=Hi%20Sumit,%0A%0AI%20just%20read%20your%20journal%20entry%20'{{ page.title | url_encode }}'..." class="reflection-btn" aria-label="Send a gentle email note to Sumit">
+                        <span data-icon="mail"></span>
+                        <span>Send a gentle note</span>
+                    </a>
+                    <a href="{{ site.instagram }}" target="_blank" rel="noopener noreferrer" class="reflection-btn" aria-label="Connect on Instagram">
+                        <span data-icon="instagram"></span>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    {% include footer.html %}
+    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+</body>
+</html>

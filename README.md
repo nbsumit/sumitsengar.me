@@ -12,7 +12,7 @@ The design is intentional, literary, and distraction-free, prioritizing typograp
 
 ## Tech & Highlights
 
-- **Pure Web Standards**: HTML5, CSS3, and vanilla JavaScript with zero frameworks, libraries, or build dependencies.
+- **Jekyll on GitHub Pages**: Markdown journal entries, clean permalinks, and shared layouts, with HTML, CSS, and vanilla JavaScript underneath.
 - **Editorial Typography**: Local pairing of *Playfair Display* (display serif) with *Lato* (humanist sans-serif) using fluid `clamp()` sizing, classic editorial drop caps, and thoughtful line rhythm.
 - **Atmospheric Reading Immersion**: Ambient paper/starlit gradients, whisper-thin scroll reading progress bar, floating back-to-top control, and intimate end-of-essay reflection cards.
 - **Refined Color System**: Editorial warm paper aesthetic with deep ink typography by default, alongside a quiet midnight ink dark mode.
@@ -24,64 +24,42 @@ The design is intentional, literary, and distraction-free, prioritizing typograp
 ## Project Structure
 
 ```
-assets/
-  css/
-    main.css         Homepage and global design tokens
-    blog.css         Publication-grade reading view styles
-  fonts/
-    Lato/            Local Lato font weights
-    PlayfairDisplay/ Local Playfair Display font weights
-  js/
-    script.js        Theme toggler, dynamic utilities, reading time
-  favicon/           Favicon set and site.webmanifest
-posts/
-  template.html      Reusable boilerplate for future articles
-  .template          Fallback template file
-index.html           Homepage and writings index
-robots.txt           Search engine crawling instructions
-sitemap.xml          Canonical XML sitemap
-CNAME                Custom domain configuration (sumitsengar.me)
-_config.yml          Jekyll clean URL configuration
+_config.yml          Jekyll site settings and clean permalinks
+_includes/           Shared head, header, and footer
+_layouts/            Homepage and essay layouts
+_posts/              Journal entries in Markdown
+assets/              CSS, fonts, JavaScript, and favicons
+index.html           Homepage
 ```
 
 ## Publishing Future Posts
 
-Adding a new essay to the website is straightforward and requires no build tools:
+The site is built with Jekyll on GitHub Pages. New entries appear on the homepage automatically.
 
-1. **Create the post page**:
-   Duplicate `posts/template.html` to `posts/<your-slug>.html` (e.g., `posts/what-is-life.html`).
-   Update the `<title>`, metadata (description, date, tag), and write the essay content inside `<div class="blog-content">`.
+1. **Create a Markdown file in `_posts/`**:
+   Name it `YYYY-MM-DD-your-slug.md`, for example `_posts/2026-10-01-what-is-life.md`.
 
-2. **Add to homepage index**:
-   In `index.html`, add an `<article class="post-item">` block inside `<div class="posts-list">`:
-   ```html
-   <article class="post-item">
-       <div class="post-meta">
-           <span class="post-tag">Life</span>
-           <span class="post-separator">•</span>
-           <time datetime="2026-09-15">September 15, 2026</time>
-           <span class="post-separator">•</span>
-           <span>5 min read</span>
-       </div>
-       <h3 class="post-item-title">
-           <a href="posts/what-is-life">What is Life?</a>
-       </h3>
-       <p class="post-item-excerpt">
-           An excerpt or opening reflection from the essay...
-       </p>
-       <a href="posts/what-is-life" class="post-item-link">
-           Read essay <span data-icon="arrowRight"></span>
-       </a>
-   </article>
+2. **Add front matter and write**:
+   ```markdown
+   ---
+   layout: post
+   title: What Is Life?
+   tag: Essay
+   description: A short summary used for social previews and the homepage card.
+   excerpt: The sentence that appears on the homepage card.
+   epigraph: An optional opening line.
+   read_time: 4 min read
+   ---
+
+   Your essay goes here.
    ```
-   *Note: Adding an article automatically hides the empty state container.*
 
 3. **Commit and deploy**:
-   Commit the new files and push to `main`. GitHub Pages will deploy the update automatically.
+   Push to `main`. GitHub Pages builds the site and publishes the essay at `/posts/your-slug/` with no `.html` in the address.
 
 ## Current Status
 
-The core editorial architecture, responsive typography, theme engine, and article templates are active. The writings section currently presents a quiet, intentional empty state awaiting upcoming essays.
+The editorial architecture, responsive typography, and first journal entry are live. New essays added to `_posts/` appear on the homepage automatically.
 
 ## Connect
 
