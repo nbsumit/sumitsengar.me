@@ -222,12 +222,17 @@ body,
     border-radius: var(--radius-sm);
 }
 
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
     color: var(--text);
     line-height: 1.25;
     font-weight: 700;
+    text-wrap: balance;
 }
 
 a {
@@ -481,6 +486,7 @@ main {
     color: var(--text-secondary);
     max-width: 44ch;
     margin-bottom: 2.5rem;
+    text-wrap: pretty;
 }
 
 .hero-subtext {
@@ -493,6 +499,7 @@ main {
     font-family: var(--font-serif);
     font-weight: 400;
     opacity: 0.92;
+    text-wrap: pretty;
 }
 
 .hero-action {
@@ -511,7 +518,9 @@ main {
     box-shadow: 0 4px 18px -2px rgba(36, 34, 43, 0.06), 0 2px 8px -1px var(--accent-subtle);
     text-decoration: none;
     touch-action: manipulation;
-    transition: all 0.25s ease;
+    transition-property: color, background-color, border-color, transform, box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
 }
 
 .hero-action .action-arrow {
@@ -710,6 +719,7 @@ main {
     font-size: 0.98rem;
     line-height: 1.7;
     color: var(--text-secondary);
+    text-wrap: pretty;
 }
 
 .post-item-link {
@@ -727,7 +737,9 @@ main {
     border: 1px solid rgba(178, 77, 111, 0.15);
     border-radius: var(--radius-full);
     touch-action: manipulation;
-    transition: all 0.25s ease;
+    transition-property: color, background-color, border-color, transform, box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
     width: fit-content;
 }
 
@@ -804,6 +816,7 @@ main {
     color: var(--text-secondary);
     max-width: 44ch;
     margin-bottom: 1.25rem;
+    text-wrap: pretty;
 }
 
 .empty-subtext {
@@ -860,6 +873,7 @@ main {
 
 .about-text p {
     margin-bottom: 1.5rem;
+    text-wrap: pretty;
 }
 
 .about-text p:last-child {

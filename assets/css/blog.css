@@ -39,7 +39,9 @@
     padding: 0.5rem 1.25rem;
     box-shadow: 0 2px 8px rgba(36, 34, 43, 0.03);
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition-property: color, background-color, border-color, transform, box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
 }
 
 .back-link .back-arrow {
@@ -105,6 +107,7 @@
     font-weight: 700;
     color: var(--text);
     margin-bottom: 1.25rem;
+    text-wrap: balance;
 }
 
 .article-meta {
@@ -145,10 +148,12 @@
     padding-bottom: 1.5rem;
     border-bottom: 1px dashed var(--border);
     opacity: 0.92;
+    text-wrap: pretty;
 }
 
 .blog-content p {
     margin-bottom: 2rem;
+    text-wrap: pretty;
 }
 
 .blog-content .lead {
@@ -276,7 +281,14 @@
     height: auto;
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-subtle);
+    outline: 1px solid rgba(0, 0, 0, 0.08);
+    outline-offset: -1px;
     display: block;
+}
+
+.dark-theme .blog-content figure img,
+[data-theme="dark"] .blog-content figure img {
+    outline-color: rgba(255, 255, 255, 0.08);
 }
 
 .blog-content figcaption {
@@ -373,12 +385,14 @@
     font-weight: 600;
     color: var(--text);
     line-height: 1.3;
+    text-wrap: balance;
 }
 
 .reflection-desc {
     font-size: 1rem;
     line-height: 1.8;
     color: var(--text-secondary);
+    text-wrap: pretty;
 }
 
 .reflection-actions {
@@ -402,7 +416,9 @@
     padding: 0.6rem 1.25rem;
     border-radius: var(--radius-full);
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition-property: color, background-color, border-color, transform, box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
     cursor: pointer;
 }
 
@@ -498,7 +514,9 @@
     box-shadow: 0 2px 8px rgba(36, 34, 43, 0.03);
     text-decoration: none;
     touch-action: manipulation;
-    transition: all 0.25s ease;
+    transition-property: color, background-color, border-color, transform, box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
 }
 
 .bottom-nav-link .back-arrow,
