@@ -13,11 +13,11 @@ The design is intentional, literary, and distraction-free, prioritizing typograp
 ## Tech & Highlights
 
 - **Jekyll on GitHub Pages**: Markdown journal entries, clean permalinks, and shared layouts, with HTML, CSS, and vanilla JavaScript underneath.
-- **Editorial Typography**: Local pairing of *Playfair Display* (display serif) with *Lato* (humanist sans-serif) using fluid `clamp()` sizing, classic editorial drop caps, and thoughtful line rhythm.
-- **Atmospheric Reading Immersion**: Ambient paper/starlit gradients, whisper-thin scroll reading progress bar, floating back-to-top control, and intimate end-of-essay reflection cards.
-- **Refined Color System**: Editorial warm paper aesthetic with deep ink typography by default, alongside a quiet midnight ink dark mode.
-- **Theme Switcher**: Smooth transitions between light and dark modes with automatic `prefers-color-scheme` detection and persistent `localStorage`.
-- **Dynamic Reading Calculations**: Automated word count and reading time estimator for articles.
+- **Reading Typography**: Locally hosted Playfair Display headings, Lato navigation, and Georgia essay text. A narrow reading column, generous line spacing, and an optional larger text setting.
+- **Quiet Layout**: Warm paper and muted olive tones, simple essay previews, and navigation that scrolls away. No floating controls, progress bar, animated backgrounds, or promotional cards.
+- **Light and Dark Themes**: Follows the system setting until a reader chooses a theme. Theme and text size preferences are saved when browser storage is available.
+- **Progressive Enhancement**: Essays and links work without JavaScript. Optional controls tolerate blocked storage and explain when clipboard access is unavailable.
+- **Reading Time**: Calculated from each essay during the Jekyll build, including when JavaScript is disabled.
 - **Accessibility & Motion**: Semantic landmarks, keyboard `:focus-visible` styling, and full `prefers-reduced-motion` compliance.
 - **Lightweight & Fast**: Zero render-blocking remote fonts or external scripts (except minimal analytics). Hosted on GitHub Pages with a custom domain.
 
@@ -48,8 +48,7 @@ The site is built with Jekyll on GitHub Pages. New entries appear on the homepag
    description: A short summary used for social previews and the homepage card.
    excerpt: The sentence that appears on the homepage card.
    epigraph: An optional opening line.
-   read_time: 4 min read
-   ---
+      ---
 
    Your essay goes here.
    ```

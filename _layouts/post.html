@@ -5,77 +5,43 @@
 </head>
 <body id="top">
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <div class="reading-progress-bar" id="reading-progress" aria-hidden="true"></div>
     {% include header.html %}
-
     <main class="article-page" id="main-content">
-        <article class="article-container">
-            <nav class="article-back-nav" aria-label="Back to writings">
-                <a href="{{ '/' | relative_url }}#writings" class="back-link">
-                    <span class="back-arrow" data-icon="arrowLeft"></span>
-                    <span>Return to writings</span>
-                </a>
-            </nav>
-
+        <article class="article-container" aria-labelledby="essay-title">
+            <a href="{{ '/' | relative_url }}#writings" class="back-link"><span aria-hidden="true">←</span> All writings</a>
             <header class="article-header">
-                <span class="article-tag">{{ page.tag | default: 'Journal' }}</span>
-                <h1 class="article-title">{{ page.title }}</h1>
+                <p class="eyebrow">{{ page.tag | default: 'Journal' | escape }}</p>
+                <h1 id="essay-title">{{ page.title | escape }}</h1>
+                {% assign word_count = content | strip_html | number_of_words %}
+                {% assign minutes = word_count | plus: 199 | divided_by: 200 %}
                 <div class="article-meta">
                     <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %-d, %Y' }}</time>
-                    <span class="meta-separator">•</span>
-                    <span id="read-time">{{ page.read_time | default: '4 min read' }}</span>
+                    <span aria-hidden="true">·</span>
+                    <span>{{ minutes | at_least: 1 }} min read</span>
+                    <button type="button" class="text-size-toggle" hidden aria-pressed="false" aria-controls="essay-body">Larger text</button>
                 </div>
             </header>
-
-            <div class="blog-content">
-                {% if page.epigraph %}
-                <div class="article-prologue">&ldquo; {{ page.epigraph }} &rdquo;</div>
-                {% endif %}
+            <div class="blog-content" id="essay-body">
+                {% if page.epigraph %}<p class="article-prologue">{{ page.epigraph | escape }}</p>{% endif %}
                 {{ content }}
             </div>
-
             <footer class="article-footer">
-                <div class="article-signature">- Sumit Sengar</div>
-            </footer>
-
-            <section class="reflection-card" aria-label="Reader Reflection">
-                <div class="reflection-header">
-                    <span class="reflection-tag">Quiet Reflection</span>
-                </div>
-                <h3 class="reflection-title">Did this resonate with you?</h3>
-                <p class="reflection-desc">
-                    If these words reached a quiet corner of your heart, you are never truly alone in the silence. Feel free to pass this reflection along to someone carrying quiet weight, or write a gentle note.
-                </p>
+                <p class="signature">- Sumit Sengar</p>
+                <div class="essay-end" aria-hidden="true">· · ·</div>
+                <p class="end-note">Thank you for reading.</p>
                 <div class="reflection-actions">
-                    <button type="button" class="reflection-btn copy-link-btn" aria-label="Share or copy reflection link" title="Share reflection">
-                        <span data-icon="copy"></span>
-                        <span class="btn-label">Share reflection</span>
-                    </button>
-                    <a href="mailto:{{ site.email }}?subject=Reading%20'{{ page.title | url_encode }}'&body=Hi%20Sumit,%0A%0AI%20just%20read%20your%20journal%20entry%20'{{ page.title | url_encode }}'..." class="reflection-btn" aria-label="Send a gentle email note to Sumit">
-                        <span data-icon="mail"></span>
-                        <span>Send a gentle note</span>
-                    </a>
-                    <a href="{{ site.instagram }}" target="_blank" rel="noopener noreferrer" class="reflection-btn" aria-label="Connect on Instagram">
-                        <span data-icon="instagram"></span>
-                        <span>Instagram</span>
-                    </a>
+                    <a href="mailto:{{ site.email }}?subject={{ page.title | url_encode }}">Write to me</a>
+                    <button type="button" class="copy-link-btn" hidden>Copy link</button>
                 </div>
-            </section>
-
-            <nav class="article-bottom-nav" aria-label="Post navigation">
-                <a href="{{ '/' | relative_url }}#writings" class="bottom-nav-link">
-                    <span class="back-arrow" data-icon="arrowLeft"></span>
-                    <span>All writings</span>
-                </a>
-                <a href="#top" class="bottom-nav-link top-link">
-                    <span>Back to top</span>
-                    <span class="top-arrow" data-icon="arrowUp"></span>
-                </a>
+                <p class="share-status" role="status" aria-live="polite"></p>
+            </footer>
+            <nav class="article-bottom-nav" aria-label="Essay navigation">
+                <a href="{{ '/' | relative_url }}#writings" class="back-link"><span aria-hidden="true">←</span> All writings</a>
+                <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
             </nav>
         </article>
     </main>
-
     {% include footer.html %}
-    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/script.js' | relative_url }}" defer></script>
 </body>
 </html>

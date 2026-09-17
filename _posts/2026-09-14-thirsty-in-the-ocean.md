@@ -2,34 +2,40 @@
 layout: post
 title: Thirsty in the Ocean
 tag: Journal
-description: Far from home, within the quiet walls of a hostel, silence takes on a weight of its own. It is the strange ache of living surrounded by an ocean of people, yet finding not a single drop to quench the thirst for connection.
-excerpt: Far from home, within the quiet walls of a hostel, silence takes on a weight of its own. It is the strange ache of living surrounded by an ocean of people, yet finding not a single drop to quench the thirst for connection.
-epigraph: In an ocean of faces, the quietest souls often carry the deepest tides.
-read_time: 5 min read
+description: Living far from home, surrounded by people, and still wishing for someone to talk to.
+excerpt: Living far from home, surrounded by people, and still wishing for someone to talk to.
 ---
 
-<p class="lead">I live in a hostel, a long way from home, and farther still from the people who know the unguarded version of me. Here I live alone. There is no one to speak with, and no one with whom I might set down the quiet burden of the season I am passing through.</p>
+I live in a hostel, far from home and the people I can be myself with. There are people all around me. But there is no one I can sit with and talk to about what I am going through.
 
-The corridors are never empty. Voices travel through thin walls; footsteps come and go at every hour. And yet, among so many lives pressed close together, there is not a single person to whom I can offer what I actually carry. I am introverted by nature. Beginning a conversation costs me more courage than it should. On the rare evenings I gather enough of it to try, the reply is usually gentle and brief: *I am busy just now.* I do not resent that. Everyone is occupied with a life of their own. I am not writing this as an accusation. I am only left with a quieter question, one I cannot quite put away: why me?
+The corridors are never empty. I hear voices through the walls and footsteps at all hours. Yet I do not know who to turn to when I need to talk. I am an introvert, and starting a conversation takes courage. Sometimes, when I finally try, the answer is a quiet, “I’m busy right now.”
 
-My classmates live on the same floor. Each morning I hear them knock on one another's doors, call names down the hallway, and leave for class in an easy cluster of laughter. No one knocks on mine. They walk to the mess together; I walk alone. In the evenings they gather in a single room and the corridor fills with their voices. They do not call me. If I happen to stop by for some academic reason, the talk thins into a sudden hush. No one asks me to sit. I understand the invitation that was never spoken. I smile, as if I had only come to the wrong door, and return to my room.
+I understand. Everyone has their own life. I do not blame them. Still, I am left with a question I cannot put away: why me?
 
-The days have taken on a spare and unchanging shape. I wake alone. I take breakfast alone. I go to class alone, sit alone, eat lunch and dinner alone, and at night I am alone again. When the academic work is finished, I lie on my back and study the ceiling. I listen to songs that already know how to ache. I watch films about love, because I have always been drawn to stories that treat feeling as something sacred rather than inconvenient.
+My classmates live on the same floor. Every morning, I hear them knock on each other’s doors and call out names. They leave for class together, laughing. No one knocks on mine.
 
-<blockquote>
-  <p>It is the condition of a thirsty traveller standing in the middle of the sea. Water reaches every horizon. Not a drop can be drunk.</p>
-</blockquote>
+They walk to the mess together. I walk alone. In the evenings, they gather in one room, and I can hear their voices from the corridor. They do not call me. Sometimes I stop by to ask about classwork. The room goes quiet. No one asks me to sit. I smile and go back to my room.
 
-When the room grows too narrow, I walk down to the ghats after midnight and remain there until the dark begins to thin. I sit beside the river and watch the current keep its old appointment with the banks. In that stillness I speak to myself of what has already happened, of what is happening now, and of the future I cannot yet see. On other nights I go to the gym and lift until the body is tired enough to quiet the mind.
+Most days follow the same pattern. I wake up alone, eat alone, go to class alone, and come back alone. When my work is done, I lie on my bed and look at the ceiling. I listen to songs that seem to understand how I feel. I watch films about love. I have always liked stories that make room for feelings.
 
-The heaviest part of this solitude is not the silence itself. It is the knowledge that if something were to happen to me here, if I were to fall ill again, there is no one close enough to notice. Even the classmates who share my lectures barely speak to me. I do not understand it. Whenever they needed help, with an assignment, with an errand outside, I left my own work unfinished and said yes. I said yes because I still believe that if you are able to help someone, you ought to. When I needed even a small kindness in return, they were busy. I did not argue. I found a way through on my own, as I have learned to do.
+> It feels like being thirsty in the middle of the sea. Water everywhere. Not a drop to drink.
 
-Even now, as I write this, they are down by the ghats together. I am glad of that. At least they are laughing. At least they are in the middle of their lives. I hold no bitterness. Each person is entitled to the company they choose, and I do not appoint myself the measure of anyone else's goodness. I only hope that no one else is asked to live inside this particular quiet.
+When the room feels too small, I walk to the ghats after midnight. I sit by the river until the sky begins to lighten. I watch the water and talk to myself about the past, about what is happening now, and about what might come next. On other nights, I go to the gym. I lift until my body is tired and my thoughts grow quieter.
 
-I have already survived heavier weather. During my bachelor's years my body passed through tuberculosis, COVID, jaundice, and infections of the kidney and the liver. In childhood I learned, too early, what discrimination feels like from the inside. I do not blame the people who were unkind. They were living the only lives they knew how to live. I wanted very little then, and I want very little now. I do not keep a private catalogue of rewards I am owed. My one remaining wish is simple, and it is not for myself: I want to give my parents the dignified, unanxious life they have earned.
+The hardest part is wondering who would notice if I fell ill again. Even the classmates I see every day barely speak to me. I do not understand why.
 
-I am not writing this to be pitied. I am writing because some feelings grow dangerous when they have nowhere to go. I needed to set them down so that I could breathe, and then return to the work that is still required of me.
+When they needed help with an assignment or an errand, I left my own work and said yes. I still believe that if you can help someone, you should. But when I needed a little help, they were busy. I did not argue. I found a way on my own.
 
-At night I talk to myself. I ask whether the fault lives in me, or whether what people call *kismat* was simply written this way. It hardly matters. I am learning to move with the current rather than argue with it. The feeling remains exact: a thirsty person in the middle of an ocean. People everywhere. No one to speak to. Leave the classmates aside; the rest of the world is full as well. I still cannot begin. My introversion is such that if a stranger in public asks me the way to a classroom, the words catch. My speech stumbles. I hesitate, and then I hesitate again.
+As I write this, they are at the ghats together. I am glad they are having a good time. I do not want to take that away from them. Everyone can choose who they spend time with. I only hope no one else has to feel this alone.
 
-And that is all. There is nothing further I need to say. I hope each person finds what they have been looking for, and that they are permitted to live happily inside it.
+I have been through difficult times before. During my bachelor’s degree, I had tuberculosis, COVID, jaundice, and infections in my kidneys and liver. As a child, I faced discrimination before I was old enough to understand it. I do not blame the people who were unkind. They were living the only lives they knew.
+
+I did not want much then. I do not want much now. I am not keeping a list of what the world owes me. More than anything, I want to give my parents a comfortable life, with dignity and fewer worries.
+
+I am not writing this for pity. Some feelings become too heavy when I keep them to myself. I needed to put them into words, take a breath, and return to my work.
+
+At night, I talk to myself. I wonder if something is wrong with me, or if this is simply my *kismat*, my fate. I am trying to accept what I cannot change. But the feeling stays: I am thirsty in an ocean. People everywhere. No one to talk to.
+
+It is not only about my classmates. Even outside the hostel, I struggle to begin a conversation. If a stranger asks me the way to a classroom, I stumble over my words. I hesitate. Then I hesitate again.
+
+That is all I wanted to say. I hope everyone finds what they are looking for, and someone to share it with.
