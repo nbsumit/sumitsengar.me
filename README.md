@@ -14,6 +14,7 @@ The design is intentional, literary, and distraction-free, prioritizing typograp
 
 - **Jekyll on GitHub Pages**: Markdown journal entries, clean permalinks, and shared layouts, with HTML, CSS, and vanilla JavaScript underneath.
 - **Reading Typography**: Locally hosted Playfair Display headings, Lato navigation, and Georgia essay text. A narrow reading column, generous line spacing, and an optional larger text setting.
+- **Gentle Motion**: Brief entrances, one-time section reveals, responsive link arrows, and soft theme changes. Essay paragraphs stay still. Motion respects system preferences, keyboard focus, and printing. All content remains visible without JavaScript.
 - **Quiet Layout**: Warm paper and muted olive tones, simple essay previews, and navigation that scrolls away. No floating controls, progress bar, animated backgrounds, or promotional cards.
 - **Light and Dark Themes**: Follows the system setting until a reader chooses a theme. Theme and text size preferences are saved when browser storage is available.
 - **Progressive Enhancement**: Essays and links work without JavaScript. Optional controls tolerate blocked storage and explain when clipboard access is unavailable.

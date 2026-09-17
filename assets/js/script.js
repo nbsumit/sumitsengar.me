@@ -44,6 +44,43 @@
             save('reading-size', large ? 'large' : 'standard');
         });
     }
+    // Animate only supporting sections, once, when they enter the viewport.
+    // Nothing is hidden while waiting: no observer or no JS still means a full page.
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if ('IntersectionObserver' in window && typeof Element.prototype.animate === 'function') {
+        const active = new Map();
+        const observer = new IntersectionObserver(entries => {
+            for (const entry of entries) {
+                if (!entry.isIntersecting) continue;
+                observer.unobserve(entry.target);
+                if (motion.matches || entry.boundingClientRect.top < 0 || entry.target.contains(document.activeElement)) continue;
+                const animation = entry.target.animate([
+                    { opacity: .65, transform: 'translateY(10px)' },
+                    { opacity: 1, transform: 'translateY(0)' }
+                ], { duration: 600, easing: 'cubic-bezier(.2,.65,.3,1)' });
+                active.set(entry.target, animation);
+                const release = () => active.delete(entry.target);
+                animation.onfinish = release;
+                animation.oncancel = release;
+            }
+        }, { threshold: .05 });
+        document.querySelectorAll('.post-item, .about-section, .footer-inner').forEach(element => observer.observe(element));
+        const cancelAnimations = () => {
+            for (const animation of active.values()) animation.cancel();
+            active.clear();
+        };
+        const onMotionChange = () => { if (motion.matches) cancelAnimations(); };
+        if (motion.addEventListener) motion.addEventListener('change', onMotionChange);
+        else if (motion.addListener) motion.addListener(onMotionChange);
+        document.addEventListener('focusin', event => {
+            for (const [element, animation] of active) {
+                if (element.contains(event.target)) animation.cancel();
+            }
+        });
+        window.addEventListener('beforeprint', cancelAnimations);
+        window.addEventListener('pagehide', cancelAnimations);
+    }
+
     const copyButton = document.querySelector('.copy-link-btn');
     const status = document.querySelector('.share-status');
     if (copyButton && status) {

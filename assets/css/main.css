@@ -106,3 +106,71 @@ img, video { max-width: 100%; height: auto; }
     .site-header, .site-footer, .skip-link, button, .hero-action { display: none !important; }
     .site-wrapper { width: 100%; }
 }
+
+/* A little warmth at the entrance; the reading column stays still. */
+.hero { position: relative; isolation: isolate; }
+.hero::before {
+    content: ''; position: absolute; z-index: -1; pointer-events: none;
+    inset: 0 -1rem 0 0;
+    background: radial-gradient(ellipse at 18% 35%, var(--selection), transparent 65%);
+    opacity: .32;
+}
+.hero::after {
+    content: ''; display: block; width: 2.75rem; height: 1px;
+    background: var(--accent); opacity: .55; margin-top: 2rem;
+    transform-origin: left;
+}
+.hero h1, .about-section h2 { text-wrap: balance; }
+.hero-description, .post-excerpt, .about-text p { text-wrap: pretty; }
+.header-inner { flex-wrap: wrap; }
+.site-nav a { position: relative; }
+.site-nav a::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: .35rem;
+    height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left;
+}
+.site-nav a:focus-visible::after { transform: scaleX(1); }
+.theme-toggle { border-radius: 999px; }
+.theme-toggle:focus-visible, .theme-toggle:hover { background: var(--selection); }
+.post-item { border-radius: 4px; }
+.post-item:focus-within { background: var(--selection); }
+.post-invitation > span, .hero-action > span, .back-link > span { display: inline-block; }
+.footer-circle-link:hover, .footer-circle-link:focus-visible { border-color: var(--accent); background: var(--selection); }
+
+@media (hover: hover) and (pointer: fine) {
+    .site-nav a:hover::after { transform: scaleX(1); }
+    .post-item:hover .post-invitation > span { transform: translateX(4px); }
+    .hero-action:hover > span { transform: translateY(3px); }
+    .back-link:hover > span { transform: translateX(-3px); }
+    .footer-circle-link:hover { transform: translateY(-2px); }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+    body { transition: background-color 240ms ease, color 240ms ease; }
+    a, button, .post-item { transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease; }
+    .site-nav a::after { transition: transform 220ms ease; }
+    .post-invitation > span, .hero-action > span, .back-link > span { transition: transform 240ms ease; }
+    .footer-circle-link { transition: transform 240ms ease, background-color 180ms ease, border-color 180ms ease; }
+    .hero > .eyebrow { animation: quiet-arrival 550ms ease-out both; }
+    .hero h1 { animation: quiet-arrival 700ms 60ms ease-out both; }
+    .hero-description { animation: quiet-arrival 700ms 120ms ease-out both; }
+    .hero-invitation { animation: quiet-arrival 700ms 170ms ease-out both; }
+    .hero-action { animation: quiet-arrival 700ms 220ms ease-out both; }
+    .hero::after { animation: opening-rule 850ms 180ms ease-out both; }
+    .article-header { animation: quiet-arrival 650ms ease-out both; }
+    @keyframes quiet-arrival {
+        from { opacity: .55; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes opening-rule {
+        from { opacity: 0; transform: scaleX(.3); }
+        to { opacity: .55; transform: scaleX(1); }
+    }
+}
+/* Focus and print never wait for an entrance animation. */
+.hero:focus-within > *, .article-header:focus-within { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+    .post-invitation > span, .hero-action > span, .back-link > span, .footer-circle-link { transform: none !important; }
+}
+@media print {
+    .hero::before, .hero::after { display: none; }
+}
