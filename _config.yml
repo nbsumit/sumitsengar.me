@@ -1,1 +1,46 @@
+title: Sumit Sengar
+tagline: Expressing the Unspoken Words
+description: A quiet corner of the web for unspoken words. Reflections on life, love, books, films, and the moments in between.
+url: https://sumitsengar.me
+baseurl: ""
+lang: en
+timezone: Asia/Kolkata
+
+author: Sumit Sengar
+email: hello@sumitsengar.me
+instagram: https://www.instagram.com/_sumitsengar_/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
 permalink: pretty
+
+plugins:
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      permalink: /posts/:title/
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - posts/template.html
+  - posts/.template
+
+include:
+  - CNAME
+
+feed:
+  title: Sumit Sengar
+  description: A quiet corner of unspoken words.
