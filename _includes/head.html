@@ -1,5 +1,20 @@
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<script>
+    (function () {
+        try {
+            var stored = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (stored === 'dark' || (!stored && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.documentElement.classList.add('dark-theme');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                document.documentElement.classList.remove('dark-theme');
+            }
+        } catch (e) {}
+    })();
+</script>
 <title>{% if page.title %}{{ page.title }} | Sumit Sengar{% else %}Sumit Sengar | Expressing the Unspoken Words{% endif %}</title>
 
 <meta name="author" content="Sumit Sengar">

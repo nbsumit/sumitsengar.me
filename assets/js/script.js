@@ -45,10 +45,12 @@
 
         if (theme === 'dark') {
             root.setAttribute('data-theme', 'dark');
-            body.classList.add('dark-theme');
+            root.classList.add('dark-theme');
+            if (body) body.classList.add('dark-theme');
         } else {
             root.removeAttribute('data-theme');
-            body.classList.remove('dark-theme');
+            root.classList.remove('dark-theme');
+            if (body) body.classList.remove('dark-theme');
         }
 
         try {
@@ -143,8 +145,8 @@
             return;
         }
 
-        const maxScroll = articleHeight - windowHeight * 0.4;
-        const currentScroll = scrollY - articleTop;
+        const maxScroll = Math.max(1, articleHeight - windowHeight * 0.4);
+        const currentScroll = Math.max(0, scrollY - articleTop);
         const progress = Math.min(100, Math.max(0, (currentScroll / maxScroll) * 100));
 
         progressBar.style.width = `${progress}%`;
@@ -175,7 +177,7 @@
     }
 
     /**
-     * Copy Reflection Link with Toast Alert
+     * Share or Copy Reflection Link with Toast Alert
      */
     function initCopyLink() {
         const copyBtns = document.querySelectorAll('.copy-link-btn');
@@ -185,7 +187,24 @@
             btn.addEventListener('click', async (e) => {
                 e.preventDefault();
                 const url = window.location.href;
+                const pageTitle = (document.title || 'Reflection').split('|')[0].trim();
 
+                // On mobile devices with native Web Share API support
+                if (navigator.share && /mobile|android|iphone|ipad|tablet/i.test(navigator.userAgent.toLowerCase())) {
+                    try {
+                        await navigator.share({
+                            title: pageTitle,
+                            text: `Read "${pageTitle}" by Sumit Sengar`,
+                            url: url
+                        });
+                        showToast('Reflection shared');
+                        return;
+                    } catch (err) {
+                        if (err.name === 'AbortError') return; // User closed share dialog
+                    }
+                }
+
+                // Fallback to clipboard copy
                 try {
                     await navigator.clipboard.writeText(url);
                 } catch (err) {
@@ -240,6 +259,22 @@
         }, 2600);
     }
 
+    /**
+     * Active nav link highlighting based on section hash
+     */
+    function updateActiveNav() {
+        const hash = window.location.hash || '';
+        const navLinks = document.querySelectorAll('.site-nav .nav-link');
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href') || '';
+            if (hash && (href.endsWith(hash) || href === hash)) {
+                link.classList.add('is-active');
+            } else {
+                link.classList.remove('is-active');
+            }
+        });
+    }
+
     // Listen to system preference changes if user hasn't explicitly chosen
     if (window.matchMedia) {
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
@@ -249,9 +284,10 @@
         });
     }
 
-    // Scroll listeners for progress bar
+    // Scroll and hash listeners
     window.addEventListener('scroll', updateReadingProgress, { passive: true });
     window.addEventListener('resize', updateReadingProgress, { passive: true });
+    window.addEventListener('hashchange', updateActiveNav);
 
     // Initial DOM setup
     document.addEventListener('DOMContentLoaded', () => {
@@ -261,6 +297,7 @@
         updateCopyrightYear();
         initBackToTop();
         initCopyLink();
+        updateActiveNav();
 
         // Attach theme toggle clicks
         document.querySelectorAll('.theme-toggle, .sun').forEach(btn => {

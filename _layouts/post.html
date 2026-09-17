@@ -47,9 +47,9 @@
                     If these words reached a quiet corner of your heart, you are never truly alone in the silence. Feel free to pass this reflection along to someone carrying quiet weight, or write a gentle note.
                 </p>
                 <div class="reflection-actions">
-                    <button type="button" class="reflection-btn copy-link-btn" aria-label="Copy link to this reflection">
+                    <button type="button" class="reflection-btn copy-link-btn" aria-label="Share or copy reflection link" title="Share reflection">
                         <span data-icon="copy"></span>
-                        <span class="btn-label">Copy reflection link</span>
+                        <span class="btn-label">Share reflection</span>
                     </button>
                     <a href="mailto:{{ site.email }}?subject=Reading%20'{{ page.title | url_encode }}'&body=Hi%20Sumit,%0A%0AI%20just%20read%20your%20journal%20entry%20'{{ page.title | url_encode }}'..." class="reflection-btn" aria-label="Send a gentle email note to Sumit">
                         <span data-icon="mail"></span>
@@ -61,6 +61,17 @@
                     </a>
                 </div>
             </section>
+
+            <nav class="article-bottom-nav" aria-label="Post navigation">
+                <a href="{{ '/' | relative_url }}#writings" class="bottom-nav-link">
+                    <span class="back-arrow" data-icon="arrowLeft"></span>
+                    <span>All writings</span>
+                </a>
+                <a href="#top" class="bottom-nav-link top-link">
+                    <span>Back to top</span>
+                    <span class="top-arrow" data-icon="arrowUp"></span>
+                </a>
+            </nav>
         </article>
     </main>
 
