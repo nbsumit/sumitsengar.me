@@ -13,7 +13,8 @@ The design is intentional, literary, and distraction-free, prioritizing typograp
 ## Tech & Highlights
 
 - **Pure Web Standards**: HTML5, CSS3, and vanilla JavaScript with zero frameworks, libraries, or build dependencies.
-- **Editorial Typography**: Local pairing of *Playfair Display* (display serif) with *Lato* (humanist sans-serif) using fluid `clamp()` sizing.
+- **Editorial Typography**: Local pairing of *Playfair Display* (display serif) with *Lato* (humanist sans-serif) using fluid `clamp()` sizing, classic editorial drop caps, and thoughtful line rhythm.
+- **Atmospheric Reading Immersion**: Ambient paper/starlit gradients, whisper-thin scroll reading progress bar, floating back-to-top control, and intimate end-of-essay reflection cards.
 - **Refined Color System**: Editorial warm paper aesthetic with deep ink typography by default, alongside a quiet midnight ink dark mode.
 - **Theme Switcher**: Smooth transitions between light and dark modes with automatic `prefers-color-scheme` detection and persistent `localStorage`.
 - **Dynamic Reading Calculations**: Automated word count and reading time estimator for articles.

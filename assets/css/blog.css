@@ -127,11 +127,25 @@
 }
 
 .blog-content .lead {
-    font-size: 1.22rem;
-    line-height: 1.8;
+    font-size: clamp(1.15rem, 0.4vw + 1.05rem, 1.25rem);
+    line-height: 1.85;
     color: var(--text);
     font-family: var(--font-serif);
     font-style: italic;
+    position: relative;
+}
+
+.blog-content .lead::first-letter {
+    float: left;
+    font-family: var(--font-serif);
+    font-size: clamp(3.2rem, 5vw, 4rem);
+    line-height: 0.82;
+    padding-top: 0.12em;
+    padding-right: 0.18em;
+    padding-bottom: 0.04em;
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 700;
 }
 
 .blog-content h2 {
@@ -169,18 +183,18 @@
 /* Blockquotes with Soft Rounded Corner Box */
 .blog-content blockquote {
     margin: clamp(2.5rem, 5vw, 3.5rem) 0;
-    padding: clamp(1.75rem, 4vw, 2.35rem);
+    padding: clamp(1.75rem, 4vw, 2.35rem) clamp(1.75rem, 4vw, 2.35rem) clamp(1.75rem, 4vw, 2.35rem) clamp(2rem, 4.5vw, 2.75rem);
     border-left: 4px solid var(--accent);
-    background-color: var(--bg-surface);
+    background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-subtle) 100%);
     border-radius: var(--radius-lg);
     border-top: 1px solid var(--border);
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    box-shadow: 0 6px 24px -6px rgba(36, 34, 43, 0.04);
+    box-shadow: 0 8px 28px -6px rgba(36, 34, 43, 0.04);
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: clamp(1.15rem, 1vw + 1rem, 1.35rem);
-    line-height: 1.7;
+    font-size: clamp(1.18rem, 1vw + 1.05rem, 1.38rem);
+    line-height: 1.75;
     color: var(--text);
     position: relative;
 }
@@ -267,9 +281,120 @@
     display: none;
 }
 
+/* --- Reflection & Reader Connection Card --- */
+.reflection-card {
+    margin-top: clamp(3.5rem, 6vw, 5rem);
+    margin-bottom: 2rem;
+    padding: clamp(1.75rem, 3.5vw, 2.5rem);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 6px 24px -6px rgba(36, 34, 43, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.reflection-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3.5px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-cool));
+    border-radius: var(--radius-full);
+}
+
+.reflection-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.reflection-tag {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background-color: var(--accent-subtle);
+    border: 1px solid rgba(182, 82, 114, 0.15);
+    padding: 0.25rem 0.85rem;
+    border-radius: var(--radius-full);
+    line-height: 1.2;
+}
+
+.reflection-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.25rem, 2vw + 0.5rem, 1.55rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.reflection-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.reflection-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.reflection-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--text);
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border);
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.reflection-btn svg {
+    width: 1rem;
+    height: 1rem;
+    display: block;
+    stroke-width: 2;
+}
+
+.reflection-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background-color: var(--accent-subtle);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px var(--accent-subtle);
+}
+
+.reflection-btn:active {
+    transform: scale(0.96);
+}
+
+.reflection-btn.is-copied {
+    color: var(--accent);
+    border-color: var(--accent);
+    background-color: var(--accent-subtle);
+}
+
 /* --- Article Footer / Signature --- */
 .article-footer {
-    margin-top: clamp(3rem, 5vw, 4.5rem);
+    margin-top: clamp(2.5rem, 4vw, 3.5rem);
     padding-top: 0;
     border-top: none;
 }
@@ -294,5 +419,18 @@
 
     .article-signature {
         font-size: 1.6rem;
+    }
+
+    .reflection-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .reflection-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .reflection-btn {
+        justify-content: center;
     }
 }

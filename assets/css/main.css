@@ -99,8 +99,8 @@
     --bg-surface: #ffffff;
     --bg-subtle: #f3ecf2;
     --text: #24222b;
-    --text-secondary: #5f596b;
-    --text-muted: #958e9f;
+    --text-secondary: #5a5466;
+    --text-muted: #756e80;
     --border: #ece4ec;
     --border-subtle: #f6eff5;
 
@@ -139,7 +139,7 @@
     --bg-subtle: #212336;
     --text: #f3f1f7;
     --text-secondary: #a7a3b8;
-    --text-muted: #747087;
+    --text-muted: #8b879e;
     --border: rgba(235, 225, 245, 0.1);
     --border-subtle: rgba(235, 225, 245, 0.05);
 
@@ -165,6 +165,8 @@ html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -838,6 +840,95 @@ main {
     border-bottom-color: var(--accent);
 }
 
+/* --- Reading Progress Bar --- */
+.reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2.5px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-cool));
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+    pointer-events: none;
+}
+
+/* --- Floating Back to Top Button --- */
+.floating-top-btn {
+    position: fixed;
+    right: clamp(1.25rem, 3vw, 2.5rem);
+    bottom: clamp(1.25rem, 3vw, 2.5rem);
+    width: 2.85rem;
+    height: 2.85rem;
+    min-width: 2.85rem;
+    min-height: 2.85rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    background-color: var(--bg-surface);
+    box-shadow: 0 4px 18px rgba(36, 34, 43, 0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px) scale(0.92);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-top-btn.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.floating-top-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 6px 22px var(--accent-subtle);
+}
+
+.floating-top-btn:active {
+    transform: scale(0.94);
+}
+
+.floating-top-btn svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    display: block;
+}
+
+/* --- Toast Notification --- */
+.toast-notification {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(24px) scale(0.95);
+    background-color: var(--text);
+    color: var(--bg);
+    padding: 0.65rem 1.4rem;
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s ease;
+    z-index: 10000;
+    white-space: nowrap;
+}
+
+.toast-notification.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+
 /* --- Responsive Adaptations --- */
 @media (max-width: 768px) {
     .site-header {
@@ -960,6 +1051,20 @@ main {
 
     .about-signature {
         font-size: 1.6rem;
+    }
+
+    .floating-top-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        min-width: 2.5rem;
+        min-height: 2.5rem;
+        right: 1.15rem;
+        bottom: 1.15rem;
+    }
+
+    .floating-top-btn svg {
+        width: 1rem;
+        height: 1rem;
     }
 }
 
