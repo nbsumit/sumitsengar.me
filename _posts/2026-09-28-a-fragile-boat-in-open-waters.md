@@ -13,7 +13,7 @@ Every day seems to bring a different kind of pain, a new complication, or some u
 
 Today, I went to an ENT clinic for what was supposed to be a routine checkup. The doctor examined me and found a blockage connecting my ear and nose. He gave me some medicines and drops to try first, but added that if they don’t work, I may have to undergo a minor operation.
 
-Seeing that diagnosis worry my mother hurt more than the news itself. For me, hearing about another medical complication has almost become routine. It is strange how the mind adapts to continuous difficulty. When health problems pile up year after year, a day without a new complication feels almost unnatural—as though you are only waiting for the next thing to break. And it isn't only physical health; sometimes personal, financial, and emotional pressures all seem to arrive at once.
+Seeing that diagnosis worry my mother hurt more than the news itself. For me, hearing about another medical complication has almost become routine. It is strange how the mind adapts to continuous difficulty. When health problems pile up year after year, a day without a new complication feels almost unnatural, as though you are only waiting for the next thing to break. And it isn't only physical health; sometimes personal, financial, and emotional pressures all seem to arrive at once.
 
 There are moments when the exhaustion feels so heavy that my mind turns dark. When you are worn down by years of pain, a tired voice tries to tell you that you are only a burden to your family, that life is unfairly brutal, or that the track you are riding on has broken and is about to crash.
 
@@ -29,9 +29,9 @@ If there is one thing this long season has taught me, it is that kindness is the
 
 And just as importantly, to extend that same kindness to yourself.
 
-I often forget that part. I find it easy to offer endless patience and empathy to others, while being harsh and demanding with my own tired body. But learning to be gentle with yourself is not giving up—it is how we survive the crossing.
+I often forget that part. I find it easy to offer endless patience and empathy to others, while being harsh and demanding with my own tired body. But learning to be gentle with yourself is not giving up. It is how we survive the crossing.
 
-A while ago, I asked someone very close to my heart what their ultimate goal was—what they truly wanted out of this life. Their answer was simple: *"To live life fully."*
+A while ago, I asked someone very close to my heart what their ultimate goal was, what they truly wanted out of this life. Their answer was simple: *"To live life fully."*
 
 That sentence stayed with me. Despite the clinic visits, the uncertainty, the quiet rooms, and the days when the boat feels unsteady, that is still what I want. Not just for others, but for myself as well.
 
