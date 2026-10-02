@@ -5,6 +5,7 @@ url: https://sumitsengar.me
 baseurl: ""
 lang: en
 timezone: Asia/Kolkata
+future: true
 
 author: Sumit Sengar
 email: hello@sumitsengar.me
